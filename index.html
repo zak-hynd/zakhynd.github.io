@@ -26,11 +26,9 @@
       iframe {
         width: 80%;  /* 80% of the container's width */
         height: 45vw;  /* 45% of the viewport width */
-        max-width: 1000px;  /* Set a maximum width for larger screens */
-        max-height: 563px;  /* Set a maximum height for larger screens */
         border: none;  /* Remove border */
       }
-    </style> <!-- Close the style tag -->
+    </style>
   </head>
   <body>
     <i>[Obligatory pre-canned wording]:</i>
@@ -42,8 +40,14 @@
     <p>However, in the meantime, I have tried to embed this appropriate video below...! </p>
 
     <div class="video-container">
-      <iframe src="https://www.youtube.com/embed/6g1IMx-iIRY?si=BUMwQ03JZ7HRJYRE" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
-      <iframe src="https://isstracker.spaceflight.esa.int/" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+      <iframe src="https://www.youtube.com/embed/6g1IMx-iIRY?si=BUMwQ03JZ7HRJYRE"
+        style="max-width: 1000px; max-height: 563px;" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+      </iframe>
+      <iframe src="https://isstracker.spaceflight.esa.int/"
+        style="max-width: 900px; max-height: 500px;" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+      </iframe>
     </div>
   </body>
 </html>
