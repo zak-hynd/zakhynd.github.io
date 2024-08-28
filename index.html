@@ -18,17 +18,24 @@
       p {
         padding: 0 20px;
         font-size: 16px;
-      }
+      } 
       .video-container {
-        text-align: center;
-        margin: 20px auto;
-      }
-      iframe {
-        width: 80%;  /* 80% of the container's width */
-        height: 45vw;  /* 45% of the viewport width */
-        max-width: 1000px;  /* Set a maximum width for larger screens */
-        max-height: 563px;  /* Set a maximum height for larger screens */
-      }
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            max-width: 100%; /* Ensures the container doesn’t overflow the parent */
+            margin: 20px auto;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0; /* Removes the border for a cleaner look */
+        }
     </style>
   </head>
   <body>
@@ -37,8 +44,7 @@
     <h1>Kia ora Taiao! (Hello World!)</h1>
     <p>This is the beginning of my website home page.</p>
     <p>It will eventually contain a list of links to all my <i>[Dev Academy]</i> blogs.</p>
-    <p>... 🧐</p>
-    <i>[do these <u>really</u> have to be public?]</i>
+    <i>[do these <u>really</u> have to be public?]</i>  ...🧐
 
     <p>However, in the meantime, I have tried to embed this appropriate video below...!</p>
 
@@ -46,7 +52,7 @@
       <h2>Live Feed from the International Space Station (ISS)</h2>
       <iframe src="https://www.youtube.com/embed/6g1IMx-iIRY?si=BUMwQ03JZ7HRJYRE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
-    
+
     <div class="video-container">
       <iframe src="https://isstracker.spaceflight.esa.int/" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
