@@ -22,7 +22,18 @@ body {
     color: #FFD700;
     text-decoration: underline; }
 */
-  
+.video-container {
+    text-align: center;
+    margin: 20px auto;
+  }
+  iframe {
+    width: 80%;  /* 80% of the container's width */
+    height: 45vw;  /* 45% of the viewport width */
+    border: none;  /* Remove border */
+  }
+/* End of index.html styling */
+
+
 
 
 /* Styling below copied from ChatGPT
