@@ -1,3 +1,57 @@
+        /* ChatGPT recommended initial things*/
+/* ensure that special characters are handled correctly   */
+@charset "UTF-8";
+/* Reset/standardise styling across browsers  */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+        /* Base Styles */
+body {
+  font-family: 'Arial', sans-serif;
+  font-size: calc(1.5rem + 3vw);
+  color: #333;
+  background-color: #c1e3d9;
+  margin: 0;
+  line-height: 1.5;
+  text-align: center;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+/* Layout */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+
+        /* Responsive Design */
+/* widescreen displays */
+@media only screen and (min-width: 920px) {
+    .container { /* some layout rules */ }
+}
+  
+/* tablets */
+@media only screen and (max-width: 919px) {
+    .container { /* some layout rules */ }
+}
+  
+/* phones */
+@media only screen and (max-width: 400px) {
+    .container { /* some layout rules */ }
+}
+
+
+
+
 /* 
 Copy/pasta from my original index.html
 body {
@@ -32,48 +86,3 @@ body {
     border: none;  /* Remove border */
   }
 /* End of index.html styling */
-
-
-
-
-/* Styling below copied from ChatGPT
-[prompt: "How should I begin a css file for my website?"] */
-
-/* ensure that special characters are handled correctly   */
-@charset "UTF-8";
-
-/* Reset/standardise styling across browsers - this I don't fully understand yet (task added to my to-do  */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-/* Base Styles */
-body {
-  font-family: 'Arial', sans-serif;
-  font-size: 16px;
-  color: #333;
-  background-color: #c1e3d9;
-  margin: 0;
-  line-height: 1.5;
-}
-
-a {
-  color: #007bff;
-  text-decoration: none;
-}
-
-/* Layout */
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 1rem;
-}
-
-/* Responsive Design */
-@media (min-width: 768px) {
-  .container {
-    padding: 2rem;
-  }
-}
