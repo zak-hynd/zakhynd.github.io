@@ -1,4 +1,3 @@
-        /* ChatGPT recommended initial things*/
 /* ensure that special characters are handled correctly   */
 @charset "UTF-8";
 /* Reset/standardise styling across browsers  */
@@ -9,73 +8,78 @@
 }
 
 
-        /* Base Styles */
-body {
-  font-family: 'Arial', sans-serif;
-  font-size: calc(1.5rem + 3vw);
-  color: #333;
-  background-color: #c1e3d9;
-  margin: 0;
-  line-height: 1.5;
-  text-align: center;
-}
-
-a {
-  color: #007bff;
-  text-decoration: none;
-}
-
-/* Layout */
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 1rem;
-}
-
-
-        /* Responsive Design */
-/* widescreen displays */
-@media only screen and (min-width: 920px) {
-    .container { /* some layout rules */ }
-}
-  
-/* tablets */
-@media only screen and (max-width: 919px) {
-    .container { /* some layout rules */ }
-}
-  
-/* phones */
-@media only screen and (max-width: 400px) {
-    .container { /* some layout rules */ }
-}
-
-
-
-
-/* 
-Copy/pasta from my original index.html
-body {
-    background-color: rgb(46, 58, 63);
-    font-family: Arial, sans-serif;
-    color: #c7c7b6;
-    text-align: center;
-  }
-  h1 {
-    color: #c7c7b6;
-    text-align: center;
-  }
-  p {
-    padding: 0 20px;
+/* Base styles */
+html {
     font-size: 16px;
-  } 
-  a {
-    color: #4DB8FF; 
-    text-decoration: none; /* Removes underline */
-  /* }
-  a:hover {
-    color: #FFD700;
-    text-decoration: underline; }
-*/
+    box-sizing: border-box;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    line-height: 1.6;
+    padding: 2rem;
+    font-size: clamp(1rem, 2vw, 1.25rem); /* Responsive font size */
+}
+
+header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+header h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 1rem;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+}
+
+main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+article {
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #ccc;
+}
+
+article h2 {
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    margin-bottom: 0.5rem;
+}
+
+article p {
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+footer {
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 0.875rem;
+}
+
+/* Copy/pasta from earlier attempts to embed videos */
 .video-container {
     text-align: center;
     margin: 20px auto;
@@ -85,4 +89,59 @@ body {
     height: 45vw;  /* 45% of the viewport width */
     border: none;  /* Remove border */
   }
-/* End of index.html styling */
+
+
+/* Media queries for further customization */
+/* widescreen displays */
+@media only screen and (min-width: 920px) {
+    body {
+        padding: 4rem;
+    }
+
+    main {
+        padding: 0 3rem;
+    }
+}
+  
+/* tablets */
+@media only screen and (max-width: 919px) {
+    body {
+        padding: 3rem;
+    }
+
+    main {
+        padding: 0 2rem;
+    }
+}
+  
+/* phones */
+@media only screen and (max-width: 400px) {
+    body {
+        padding: 2rem;
+    }
+
+    main {
+        padding: 0 1.5rem;
+    }
+}
+
+/* 2-sizes
+@media (min-width: 600px) {
+    body {
+        padding: 3rem;
+    }
+
+    main {
+        padding: 0 2rem;
+    }
+}
+
+@media (min-width: 900px) {
+    body {
+        padding: 4rem;
+    }
+
+    main {
+        padding: 0 3rem;
+    }
+} */
