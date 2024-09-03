@@ -9,47 +9,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> <!-- Import Roboto? -->
     <link href="https://zak-hynd.github.io/styles/main.css" rel="stylesheet" type="text/css">
     <meta name="robots" content="noindex, nofollow"> <!-- Prevents creepy Google/Bing crawlers from indexing and following this page. Also in conjunction with the robots.txt file -->
-    <!-- <style>
-      body {
-        background-color: rgb(46, 58, 63);
-        font-family: Arial, sans-serif;
-        color: #c7c7b6;
-        text-align: center;
-      }
-      h1 {
-        color: #c7c7b6;
-        text-align: center;
-      }
-      p {
-        padding: 0 20px;
-        font-size: 16px;
-      } 
-      a {
-        color: #4DB8FF; /* Light blue link color for good contrast */
-        text-decoration: none; /* Removes underline */
-      }
-      a:hover {
-        color: #FFD700; /* Gold color on hover for emphasis */
-        text-decoration: underline; /* Underline on hover for better UX */
-      }
-      .video-container {
-        text-align: center;
-        margin: 20px auto;
-      }
-      iframe {
-        width: 80%;  /* 80% of the container's width */
-        height: 45vw;  /* 45% of the viewport width */
-        border: none;  /* Remove border */
-      }
-    </style> -->
   </head>
+
   <body>
     <header>
       <h1>😳</h1>  
-      <h1>Kia ora Taiao! (Hello World!)</h1>
-      <em>[Obligatory pre-canned wording]:</em>
+      <h1>Zak's Site</h1>
+      <em>Dev Academy blog site</em>
     </header>
-    <div>
+
+    <div> <!-- Intro thing -->
+      <h2>Preamble</h2>
       <p>This is the beginning of my website home page.</p>
       <p>It will eventually contain a list of links to all my <i>[Dev Academy]</i> blogs.</p> 
       <p>The first dummy example of which is <a href="https://zak-hynd.github.io/blog/te-houtaewa-template.html">here...</a></a></p>
@@ -57,15 +27,27 @@
     </div>
     <hr>
     <div class="video-container">
-      <iframe src="https://www.youtube.com/embed/6g1IMx-iIRY?si=BUMwQ03JZ7HRJYRE"
+      <div class="vid-head">
+        Here, I'm trying to put a header thing to the video container panel
+      </div>
+      <div class="vid-1">
+        <p>Livestream from ISS <i>(if I can find a decent source that doesn't break!)</i></p>
+        <iframe src="https://www.youtube.com/embed/6g1IMx-iIRY?si=BUMwQ03JZ7HRJYRE"
         style="max-width: 1000px; max-height: 563px;" 
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
       </iframe>
+      </div>
+      <div class="vid-2">
+      <p>ISS tracker from the European Space Agency</p>
       <iframe src="https://isstracker.spaceflight.esa.int/"
         style="max-width: 900px; max-height: 500px;" 
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
       </iframe>
+      </div>
+      <div class="vid-foot">video footer... assuming I need one...</div>
     </div>
+    <hr>
+
     <footer>
       <p> &copy; Copyright? Copywrite? Coffeerite?</p>
     </footer>
