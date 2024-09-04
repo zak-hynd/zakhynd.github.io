@@ -37,6 +37,8 @@ header h1 {
     font-size: clamp(1.5rem, 5vw, 3rem);
 }
 
+
+/* I'm not really sure what these do right now! */
 nav ul {
     list-style: none;
     padding: 0;
@@ -51,6 +53,9 @@ nav ul li a {
     text-decoration: none;
     color: #333;
 }
+/* unsure what these do ^^  */
+
+
 
 main {
     max-width: 800px;
@@ -79,17 +84,49 @@ footer {
     margin-top: 2rem;
     font-size: 0.875rem;
 }
-
-/* Copy/pasta from earlier attempts to embed videos */
-.video-container {
-    text-align: center;
-    margin: 20px auto;
-  }
+ 
+  
   iframe {
     width: 80%;  /* 80% of the container's width */
-    height: 45vw;  /* 45% of the viewport width */
+    height: 45vw;  /* 45% of the viewport width 
     border: none;  /* Remove border */
   }
+
+  /* Container items */
+  .vid-head {
+    grid-area: vid-head;
+  }
+
+  .vid-1 {
+    grid-area: vid-1;
+  }
+
+  .vid-2 {
+    grid-area: vid-2;
+  }
+
+  .vid-foot {
+    grid-area: vid-foot;
+  }
+
+  .video-container {
+    font-size: 1.5em;
+    min-height: 300px;
+    width: 100%;
+    background: Lightblue;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 50px auto 1fr auto;
+    grid-gap: 10px;
+    grid-template-areas:
+      "vid-head"
+      "vid-1"
+      "vid-2"
+      "vid-foot";
+  }
+
+
+
 
 
 /* Media queries for further customization */
@@ -102,6 +139,12 @@ footer {
     main {
         padding: 0 3rem;
     }
+    .container {
+        grid-template-areas:
+        "vid-head vid-head"
+        "vid-1 vid-2"
+        "vid-foot vid-foot";
+    }
 }
   
 /* tablets */
@@ -113,6 +156,12 @@ footer {
     main {
         padding: 0 2rem;
     }
+    .container {
+        grid-template-areas:
+        "vid-head vid-head"
+        "vid-1 vid-2"
+        "vid-foot vid-foot";
+    }
 }
   
 /* phones */
@@ -123,6 +172,12 @@ footer {
 
     main {
         padding: 0 1.5rem;
+    }
+    .container {
+        grid-template-areas:
+        "vid-head vid-head"
+        "vid-1 vid-2"
+        "vid-foot vid-foot";
     }
 }
 
