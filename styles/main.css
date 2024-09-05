@@ -36,7 +36,7 @@ a:hover, .box:hover {
   padding-left: 0.2rem;
   padding-right: 0.5rem;
   background-color: #337e7866;
-  font-size: 0.6rem;
+  font-size: 0.7rem;
 }
 
 code {
@@ -51,11 +51,11 @@ code {
 
 /* All the top of page stuff */
 .homelinkthing {
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     display: block;
     transition: background-color 0.5s ease;
-    margin-left: -0.8rem;
-    margin-top: -0.8rem;
+    margin-left: -1rem;
+    margin-top: -1rem;
   }
 
   .homelinkthing a {
@@ -123,7 +123,7 @@ code {
     flex-wrap: wrap;
     gap: 1.5rem;
     justify-content:center;
-    margin: 0rem;
+    margin: 0.2rem;
   }
 
   .box {
@@ -131,6 +131,6 @@ code {
     width: 2rem;
     height: 2rem;
     border-radius: 0.3rem;
-    margin-left: 3rem;
-    margin-right: 3rem;
+    margin-left: 3.8rem;
+    margin-right: 3.8rem;
   }
