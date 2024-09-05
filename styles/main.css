@@ -3,6 +3,13 @@
 
 
 /* base styles */
+HTML {
+  background-color: #363e46;
+  /* background-image: url('https://zak-hynd.github.io/styles/PXL_20240819_080845952.NIGHT.jpg'); */
+  /* background-position: top; */
+  /* background-size: cover; */
+}
+
 body {
     background-color: lightslategrey;
     color: #120d50;
