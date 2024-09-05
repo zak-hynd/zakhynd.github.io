@@ -1,204 +1,88 @@
 /* ensure that special characters are handled correctly   */
 @charset "UTF-8";
-/* Reset/standardise styling across browsers  */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 
 
-/* Base styles */
-html {
-    font-size: 16px;
-    box-sizing: border-box;
-}
-
-*, *::before, *::after {
-    box-sizing: inherit;
-    margin: 0;
-    padding: 0;
-}
-
+/* base styles */
 body {
     background-color: lightslategrey;
+    color: #120d50;
     font-family: 'Roboto', Arial, sans-serif;
-    line-height: 1.6;
-    padding: 2rem;
-    font-size: clamp(1rem, 2vw, 1.25rem); /* Responsive font size */
-}
-
-header {
-    text-align: center;
-    margin-bottom: 2rem;
-}
-
-header h1 {
-    font-size: clamp(1.5rem, 5vw, 3rem);
-}
-
-
-/* I'm not really sure what these do right now! */
-nav ul {
-    list-style: none;
-    padding: 0;
-}
-
-nav ul li {
-    display: inline;
-    margin: 0 1rem;
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: #333;
-}
-/* unsure what these do ^^  */
-
-
-
-main {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 0 1rem;
-}
-
-article {
-    margin-bottom: 2rem;
-    padding-bottom: 1rem;
-    border-bottom: 1px solid #ccc;
-}
-
-article h2 {
-    font-size: clamp(1.5rem, 4vw, 2rem);
-    margin-bottom: 0.5rem;
-}
-
-article p {
-    margin-bottom: 1rem;
+    line-height: 1.4;
+    padding: 1.5rem;
     font-size: 1rem;
+    max-width: 700px;
+    margin: auto;
 }
 
-footer {
-    text-align: center;
-    margin-top: 2rem;
-    font-size: 0.875rem;
+a {
+  color: inherit;
+  background-color: #ffffff22;
+  transition: background-color 0.5s ease;
+  border-radius: 0.4rem;
 }
- 
+
+a:hover {
+  background-color: #ba6aff77;
+  transition: background-color 0.5s ease;
+}
+
+/* All the top of page stuff */
+.homelinkthing {
+    font-size: 1.3rem;
+    display: block;
+    transition: background-color 0.5s ease;
+    margin-left: -0.8rem;
+    margin-top: -0.8rem;
+  }
+
+  .homelinkthing a {
+    text-decoration: none;
+  }
+
+.pageheading {
+    margin-bottom: 1rem;
+  }
+
+  .pagetitle {
+    font-size: 1.5rem;
+    font-weight: bolder;
+    text-align: left;
+    margin-left: 1.2rem;
+  }
+
+  .pagesubtitle {
+    font-weight:bold;
+    font-style: oblique;
+    margin-left: 0.2rem;
+  }
+
+  .pagesummary{}
   
-  iframe {
-    width: 80%;  /* 80% of the container's width */
-    height: 45vw;  /* 45% of the viewport width 
-    border: none;  /* Remove border */
+
+  /* Subpagelinks stuff */
+  .subpage-list {
+    display: block;
   }
 
-  /* Container items */
-  .vid-head {
-    grid-area: vid-head;
+  .subpage-list-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-left: 0rem;
   }
 
-  .vid-1 {
-    grid-area: vid-1;
+  .subpage-links a {
+    display: block;
+    margin: 0.4rem;
+    padding-left: 1.2rem;
+    text-decoration: none;
+    position: relative;
   }
 
-  .vid-2 {
-    grid-area: vid-2;
+  .subpage-links a::before {
+    content: "•";
+    position: absolute;
+    left: 0.5rem;
+    top: -0.2rem;
+    font-size: 1.4rem;
   }
 
-  .vid-foot {
-    grid-area: vid-foot;
-  }
-
-  .video-container {
-    font-size: 1.5em;
-    min-height: 300px;
-    width: 100%;
-    background: Lightblue;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 50px auto 1fr auto;
-    grid-gap: 10px;
-    grid-template-areas:
-      "vid-head"
-      "vid-1"
-      "vid-2"
-      "vid-foot";
-  }
-
-
-
-
-
-/* Media queries for further customization */
-/* widescreen displays */
-@media only screen and (min-width: 920px) {
-    body {
-        padding: 4rem;
-    }
-
-    main {
-        padding: 0 3rem;
-    }
-    .container {
-        grid-template-areas:
-        "vid-head vid-head"
-        "vid-1 vid-2"
-        "vid-foot vid-foot";
-    }
-}
-  
-/* tablets */
-@media only screen and (max-width: 919px) {
-    body {
-        padding: 3rem;
-    }
-
-    main {
-        padding: 0 2rem;
-    }
-    .container {
-        grid-template-areas:
-        "vid-head vid-head"
-        "vid-1 vid-2"
-        "vid-foot vid-foot";
-    }
-}
-  
-/* phones */
-@media only screen and (max-width: 400px) {
-    body {
-        padding: 2rem;
-    }
-
-    main {
-        padding: 0 1.5rem;
-    }
-    .container {
-        grid-template-areas:
-        "vid-head vid-head"
-        "vid-1 vid-2"
-        "vid-foot vid-foot";
-    }
-}
-
-
-/* 2-sizes
-@media (min-width: 600px) {
-    body {
-        padding: 3rem;
-    }
-
-    main {
-        padding: 0 2rem;
-    }
-}
-
-@media (min-width: 900px) {
-    body {
-        padding: 4rem;
-    }
-
-    main {
-        padding: 0 3rem;
-    }
-} */
