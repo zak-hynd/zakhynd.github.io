@@ -30,11 +30,13 @@ a:hover, .box:hover {
 .comment {
   font-style: italic;
   color: #324643;
-  border-left: 0.1rem solid #ddd; 
+  width: fit-content;
+  margin-left: 1.5rem;
+  border-left: 0.1rem solid #dddddaa; 
   padding-left: 0.2rem;
-  margin: 0.4rem;
-  background-color: #337e78aa;
-  font-size: 0.8rem;
+  padding-right: 0.5rem;
+  background-color: #337e7866;
+  font-size: 0.6rem;
 }
 
 code {
