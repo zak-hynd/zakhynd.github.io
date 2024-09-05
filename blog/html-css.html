@@ -15,7 +15,7 @@
 <body>
     <header>
       <div class="homelinkthing">
-        <a href="https://zak-hynd.github.io">😳...</a>
+        <a href="https://zak-hynd.github.io">😳<<<</a>
       </div>
       <div class="pageheading" >
         <div class="pagetitle">HTML-CSS</div>
@@ -30,15 +30,15 @@
         <p><b>Exercise brief:</b> Research one of 4 possible topics from a list of concepts that were covered during this sprint. Write a blog post that teaches others how and when to use each thing. 
         <b>Topic chosen:</b> <i>"What are the differences between relative, absolute, and fixed positioning?"</i></p>
         <h2>Positioning!</h2>
-        <p>The question asks about the differences between three types of positioning, but, from my quick research (which probably STILL took far longer than the timebox recommendations!), it appears that there are five types: Static, Relative, Absolute, Fixed, Sticky.</p>
-        <p>I’m going to try to demonstrate each of these positioning types by referencing an element that I’ve used on my home blog page. I wanted to change the basic styles for the links to my blog pages, so I put a * before the link text using this class:</p>
+        <p>The question asks about the differences between three types of positioning, but, from my quick research, it appears that there are five types: Static, Relative, Absolute, Fixed, Sticky.</p>
+        <p>I’m going to try to demonstrate each of these positioning types by referencing an element that I’ve used on my home blog page. I wanted to change the basic styles for the links to my blog pages, so I put a • before the link text using this class:</p>
         <p><code>.subpage-links a::before {
         content: "•";
         }</code></p>
         <i>[^^ugh I need to figure out how to better style code]</i>
         <p>But this is what they looked like:</p>
         <img src="https://github.com/zak-hynd/zak-hynd.github.io/blob/main/blog/resources/htmlcss01.jpg?raw=true" alt="static positioning" width=auto height=100 />
-        <p>They all have the default positioning: <b>static</b>.</p>
+        <p>The • is right next to the top left corner of the text. This is the default positioning, <b>static</b>.</p>
         <p>If I set the positioning to <b>relative</b>, and tell it to move left and down a bit, this moves the element relative to that original static position.</p>
         <img src="https://github.com/zak-hynd/zak-hynd.github.io/blob/main/blog/resources/htmlcss02.jpg?raw=true" alt="relative positioning" width=auto height="100" />
         <p>If I instead use <b>absolute</b> positioning, this sets the element’s “origin”, it’s “reference position” relative to its nearest positioned “ancestor”... which, in this case, is ???the position of the div class that contains it, or if that doesn’t have positioning, it’s the ancestor above that, and so on… I think.</p>
@@ -46,7 +46,7 @@
         <p>Fixed positioning is fixed relative to the viewport; so when you scroll the elements can appear like they’re floating over the page. Like eye floaters!</p>
         <i>[^^It's difficult to capture that behaviour in a screenshot!]</i>
         <p><b>Sticky</b> positioning doesn’t appear to affect my wee elements here in any noticeable way. But from what I understand, it allows the positioning to flip-flop between relative and fixed. A good use case of which is the sorts of headings on pages that stay floating until you scroll past a certain point.</p>
-        <p>I’d like to delve deeper, but I’ve already spent too much time faffing around with this one!</p>
+        <p>Admittedly, I could have used a far better example to explain these differences. And I’d like to delve deeper, but I’ve already spent too much time faffing around with this exercise!</p>
     </main>
 
 
