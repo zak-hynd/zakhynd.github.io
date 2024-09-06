@@ -5,6 +5,7 @@
 /* base styles */
 HTML {
   background-color: #363e46;
+  font-size: min(1.5min, 25px);
   /* background-image: url('https://zak-hynd.github.io/styles/PXL_20240819_080845952.NIGHT.jpg'); */
   /* background-position: top; */
   /* background-size: cover; */
@@ -16,7 +17,6 @@ body {
     font-family: 'Roboto', Arial, sans-serif;
     line-height: 1.4;
     padding: 1.5rem;
-    font-size: 1rem;
     max-width: 700px;
     margin: auto;
 }
