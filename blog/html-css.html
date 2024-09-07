@@ -45,7 +45,7 @@
 
           <!-- Relative positioning -->
          <div class="bordered-panel">
-         <p>If I set the element's position to <b><u>relative</u></b> and tell it to move a bit (left: 1rem; top: 1rem), this moves the element <i>relative</i> to that original static position.</p>
+         <p>If I set the element's position to <b><u>relative</u></b> and tell it to move a bit (left -10px, top 5px), this moves the element <i>relative</i> to that original <span style="color: darkmagenta;">static position.</span></p>
          <p class="demolink-relative">
           <a href="">position: relative</a></p>
         </div>
@@ -55,8 +55,8 @@
           <p class="demolink-absolute">
             <a href="">position: absolute</a>
             </p>
-          <p>Here we have <b><u>absolute</u></b> positioning: left 1rem; top -1rem.</p>
-          <p>In this case, the origin/reference point is the top-left corner of this shaded box thing. This box happens to be the nearest "<i>positioned ancestor</i>" of the element.  If I didn't give this shaded box a position, then the bullet point would be up near the top of this page!!
+          <p>Here we have <b><u>absolute</u></b> positioning: left & top 1rem.</p>
+          <p>In this case, the <span style="color: darkmagenta;">origin/reference point</span> is the top-left corner of this shaded box thing. This box happens to be the nearest "<i>positioned ancestor</i>" of the element.  If I didn't give this shaded box a position, then the bullet point would be up near the top of this page!!
           </p>
           </div>
 
@@ -66,7 +66,7 @@
               <a href="">position: fixed</a>
             </p>
             Here we have <b><u>fixed</u></b> positioning (left 90%; top 95%). Wait, where is the bullet?! Have a look down the bottom-right corner of the screen.
-            This position is fixed relative to the viewport, the browser window; so when you scroll the elements can appear like they’re floating over the page. Like eye floaters! A more <i>useful</i> example of fixed positioning is with things like nav bars (like at the top of this page).</p>
+            This position is fixed relative to the <span style="color: darkmagenta;">viewport</span>, the browser window; so when you scroll the elements can appear like they’re floating over the page. Like eye floaters! A more <i>useful</i> example of fixed positioning is with things like nav bars (like at the top of this page).</p>
           </div>
         
 
@@ -113,53 +113,62 @@
   }
 
   .demolink-static a , .demolink-relative a , .demolink-absolute a , .demolink-fixed a , .demolink-sticky a {
-    /* display: block; */
     width: fit-content;
-    /* max-width: 38rem; */
     margin: 0.4rem;
     padding-left: 1.2rem;
     padding-right: 0.5rem;
     text-decoration: none;
   }
+  .demolink-static a::before, .demolink-relative a::before , .demolink-absolute a::before , .demolink-fixed a::before , .demolink-sticky a::before {
+    content: "•";
+    font-size: 1.7rem;
+  }
+  .demolink-relative a::after , .demolink-absolute a::after , .demolink-fixed a::after {
+    content: "•";
+    font-size: 1.7rem;
+    color: #ff00f75d;
+  }
 
   /* Demos */
   .demolink-static a::before {
-    content: "•";
     position: static;
-    font-size: 1.4rem;
   }
   .demolink-relative a::before {
-    content: "•";
     position: relative;
-    left: 20px;
-    top: 20px;
-    font-size: 1.4rem;
+    left: -10px;
+    top: 5px;
   }
-  
+  .demolink-relative a::after {
+    position: relative;
+    left: -7.9rem;
+  }
   .demolink-absolute a::before {
-    content: "•";
     position: absolute;
-    font-size: 1.4rem;
-    left: 20px;
-    top: 20px;
+    left: 1rem;
+    top: 1rem;
   }
-  
+  .demolink-absolute a::after {
+    position: absolute;
+    left: 0rem;
+    top: 0rem;
+  }
   .demolink-fixed a::before {
-    content: "•";
     position: fixed;
     left: 90%;
     top: 95%;
-    font-size: 1.4rem;
   }
-
+  .demolink-fixed a::after {
+    position: fixed;
+    left: 0;
+    top: 0;
+  }
   .demolink-sticky a::before {
-    content: "•";
     position: absolute;
     left: 1rem;
     font-size: 1.4rem;
   }
+  /* more wizardry needed for the sticky demo */
   .demolink-sticky {
-    /* content: "•"; */
     position: sticky;
     top: 0;
     z-index: 010;
@@ -168,11 +177,11 @@
   }
   .bordered-panel-sticky {
     max-width: 12rem;
+    /* this is a copy/pasta from my main styling for a box  but with the max width reduced for the scroll effect on wider screens*/
     background-color: #00000009;
     border-radius: 0.3rem;
     border: 0.1rem solid #00000055;
     padding: 0.4rem;
     margin-bottom: 3rem;
   }
-
 </style>
