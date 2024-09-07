@@ -117,17 +117,7 @@ code {
   
 
   /* Subpagelinks stuff */
-  .subpage-list {
-    display: block;
-  }
-
-  .subpage-list-title {
-    font-size: 1.2rem;
-    font-weight: bold;
-    margin-left: 0rem;
-  }
-
-  .subpage-links a {
+  .subpage-link a {
     display: block;
     /* width: fit-content; */
     max-width: 38rem;
@@ -137,11 +127,11 @@ code {
     position: relative;   
   }
 
-  .subpage-links a::before {
+  .subpage-link a::before {
     content: "•";
     position: absolute;
     left: 0.5rem;
-    top: -0.2rem;
+    top: -0.0rem;
     font-size: 1.4rem;
   }
 
