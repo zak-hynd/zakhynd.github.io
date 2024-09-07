@@ -27,23 +27,152 @@
           <b>Exercise brief:</b> Research one of 4 possible topics from a list of concepts that were covered during this sprint. Write a blog post that teaches others how and when to use each thing. 
           <br><b>Topic chosen:</b> <i>"What are the differences between relative, absolute, and fixed positioning?"</i>
           </div>
-         <h2>Positioning!</h2>
+         <h2>Positioning shenanigans!</h2>
          <p>The question asks about the differences between three types of positioning, but, from my quick research, it appears that there are five types: Static, Relative, Absolute, Fixed, Sticky.</p>
-         <p>I’m going to try to demonstrate each of these positioning types by referencing an element that I’ve used on my home blog page. I wanted to change the basic styles for the links to my blog pages, so I put a • before the link text using this class:</p>
+         <p>I though I would try to demonstrate each of these positioning types by referencing an element that I <i>just</i> finished playing with on this website. I had a bunch of links to my wanted to change the basic styles for the links to my blog pages, so I put a bullet point (•) before the link text using this class:</p>
          <p><code>.subpage-links a::before {
          content: "•";
          }</code></p>
-         <p>But this is what they looked like:</p>
-         <img src="https://github.com/zak-hynd/zak-hynd.github.io/blob/main/blog/resources/htmlcss01.jpg?raw=true" alt="static positioning example" width=auto height="80rem" />
-         <p>^^The • is right next to the top left corner of the text. This is the default positioning: <b>static</b>.</p>
-         <p><br>If I set the positioning to <b>relative</b> and tell it to move left a bit this moves the element relative to that original static position.</p>
-         <img src="https://github.com/zak-hynd/zak-hynd.github.io/blob/main/blog/resources/htmlcss02.jpg?raw=true" alt="relative positioning example" width=auto height="80rem" />
-         <p><br>If I instead use <b>absolute</b> positioning, this sets the element’s “origin”, it’s “reference position” relative to its nearest positioned “ancestor”... which, in this case, is ???the position of the div class that contains it, minus the padding:</p>
-         <img src="https://github.com/zak-hynd/zak-hynd.github.io/blob/main/blog/resources/htmlcss03.jpg?raw=true" alt="absolute positioning example" width=auto height="80rem" />
-         <p><br><b>Fixed</b> positioning is fixed relative to the viewport; so when you scroll the elements can appear like they’re floating over the page. Like eye floaters!</p>
-         <p class="comment">^^It is difficult to capture that behaviour in a screenshot! I suppose I ought to think about putting in some kind of container here that demonstrates all these things live, but that's quite far beyond the scope of of the exercise! </p>
-         <p><br>Well this is a bit of a failure; <b>Sticky</b> positioning doesn’t appear to affect my wee elements here in any noticeable way. But from what I understand, it allows the positioning to flip-flop between relative and fixed. A good use case of which is the sorts of headings on pages that stay floating until you scroll past a certain point - or simply a nav bar that always stays visible, stuck at the top of the page (the body element)</p>
-         <p><br><b>Conclusion:</b> the type of positioning one chooses to use for an element entirely depends on the circumstances (<i>reeeeaal</i> helpful advice, I know - I feel like a chatbot writing that). Admittedly, I could have used a far better example to explain these differences. And I’d like to delve deeper, but I’ve already spent too much time faffing around trying to simply <i>display</i> this content appropriately!</p>
+
+         <!--  Static positioning-->
+         <div class="bordered-panel">
+          <p>But this is what they looked like:</p>
+
+          <p class="demolink-static">
+            <a href="">position: static</a></p>
+            <p>The bullet point is right next to the top left corner of the link's text. This is the default positioning: <b><u>static</u></b></p>
+          </div>
+
+          <!-- Relative positioning -->
+         <div class="bordered-panel">
+         <p>If I set the element's position to <b><u>relative</u></b> and tell it to move a bit (left: 1rem; top: 1rem), this moves the element <i>relative</i> to that original static position.</p>
+         <p class="demolink-relative">
+          <a href="">position: relative</a></p>
+        </div>
+
+         <!-- Absolute positioning -->
+         <div class="bordered-panel">
+          <p class="demolink-absolute">
+            <a href="">position: absolute</a>
+            </p>
+          <p>Here we have <b><u>absolute</u></b> positioning: left 1rem; top -1rem.</p>
+          <p>In this case, the origin/reference point is the top-left corner of this shaded box thing. This box happens to be the nearest "<i>positioned ancestor</i>" of the element.  If I didn't give this shaded box a position, then the bullet point would be up near the top of this page!!
+          </p>
+          </div>
+
+        <!-- Fixed positioning -->
+          <div class="bordered-panel">
+            <p class="demolink-fixed">
+              <a href="">position: fixed</a>
+            </p>
+            Here we have <b><u>fixed</u></b> positioning (left 90%; top 95%). Wait, where is the bullet?! Have a look down the bottom-right corner of the screen.
+            This position is fixed relative to the viewport, the browser window; so when you scroll the elements can appear like they’re floating over the page. Like eye floaters! A more <i>useful</i> example of fixed positioning is with things like nav bars (like at the top of this page).</p>
+          </div>
+        
+
+          <!-- Sticky positioning -->
+          <div class="bordered-panel-sticky">
+            <p class="demolink-sticky">
+              <a href="">position: sticky</a>
+            </p>
+            And finally there is <b><u>sticky</u></b> positioning.
+            <br><br>
+            Keep scrolling...
+            <br><br>
+            I had to add a bunch of top padding to this so that it doesn't get completely hidden by the nav bar. 
+            <br><br>
+            I also couldn't figure out how to make just the bullet sticky - I swear I managed to do it the other day. So I made the whole link sticky instead.
+            <br><br>
+            The sticky thing becomes <i>fixed</i> after its normal position has been scrolled past.</p>
+            <p>This can be useful for things like table headers.</p>
+            <p> I personally get really annoyed when looking at tabular when the headers aren't sticky! That's such a common problem in Wikipedia, unfortunately.
+            </p>
+            </p>
+            This panel is stupidly tall and narrow to allow for the sticky demo to <i>actually</i> work on a larger screen!
+          </div>
+
+
+         <p><br><h3>Conclusion</h3> the type of positioning one chooses to use for an element entirely depends on the circumstances (<i>reeeeaal</i> helpful advice, I know - I feel like a chatbot writing that). Admittedly, I could have used a far better example to explain these differences. And I’d like to delve deeper, but I’ve already spent too much time faffing around trying to simply <i>display</i> this content appropriately!</p>
+      </p>
+
+
+
+
      </main>
    </body>
  </html>
+
+ <!-- styles for page-specific stuff -->
+<style>
+  .bordered-panel {
+    position:relative ;
+  }
+  .demolink-static, .demolink-relative , .demolink-absolute , .demolink-fixed , .demolink-sticky {
+    font-size: 1rem;
+    margin-left: 2.5rem;
+  }
+
+  .demolink-static a , .demolink-relative a , .demolink-absolute a , .demolink-fixed a , .demolink-sticky a {
+    /* display: block; */
+    width: fit-content;
+    /* max-width: 38rem; */
+    margin: 0.4rem;
+    padding-left: 1.2rem;
+    padding-right: 0.5rem;
+    text-decoration: none;
+  }
+
+  /* Demos */
+  .demolink-static a::before {
+    content: "•";
+    position: static;
+    font-size: 1.4rem;
+  }
+  .demolink-relative a::before {
+    content: "•";
+    position: relative;
+    left: 20px;
+    top: 20px;
+    font-size: 1.4rem;
+  }
+  
+  .demolink-absolute a::before {
+    content: "•";
+    position: absolute;
+    font-size: 1.4rem;
+    left: 20px;
+    top: 20px;
+  }
+  
+  .demolink-fixed a::before {
+    content: "•";
+    position: fixed;
+    left: 90%;
+    top: 95%;
+    font-size: 1.4rem;
+  }
+
+  .demolink-sticky a::before {
+    content: "•";
+    position: absolute;
+    left: 1rem;
+    font-size: 1.4rem;
+  }
+  .demolink-sticky {
+    /* content: "•"; */
+    position: sticky;
+    top: 0;
+    z-index: 010;
+    padding-top: 2rem;
+    margin-left: auto;  
+  }
+  .bordered-panel-sticky {
+    max-width: 12rem;
+    background-color: #00000009;
+    border-radius: 0.3rem;
+    border: 0.1rem solid #00000055;
+    padding: 0.4rem;
+    margin-bottom: 3rem;
+  }
+
+</style>
