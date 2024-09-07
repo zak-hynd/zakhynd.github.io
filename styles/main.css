@@ -113,12 +113,13 @@ code {
     border: 0.1rem solid #00000055;
     padding: 0.4rem;
     margin-bottom: 3rem;
+    position: relative;
   }
   
 
   /* Subpagelinks stuff */
   .subpage-links a {
-    display: block;
+    display: flex;
     /* width: fit-content; */
     max-width: 38rem;
     margin: 0.4rem;

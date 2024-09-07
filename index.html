@@ -26,19 +26,32 @@
         <div class="bordered-panel">
           Kia ora Taiao! This is the beginning of my wee website. It will eventually contain a list of links to all my <a href="https://devacademy.co.nz/">Dev Academy</a> learning assignment 'blogs', and perhaps some other random crap that I decide to throw in for the craic.
         </div>
-
-        <h3>Blogs</h3>
+        
+            
+          
+      <div class="blogs-responsive-grid">
+        <div class="panel panel1"><h3>Tech Blogs</h3>
           <div class="subpage-links">
-            <a href="https://zak-hynd.github.io/blog/html-css.html">HTML-CSS</a>
-            <a href="https://zak-hynd.github.io/blog/te-houtaewa-template.html">Te Houtaewa</a>
+            <a href="https://zak-hynd.github.io/blog/html-css.html">HTML-CSS: positioning</a>
+            <a href="https://zak-hynd.github.io/blog/te-houtaewa-template.html">Te Houtaewa </a>
             <p class="comment">
               eugh, I don't really like this word 'blog', but I guess I'll roll with it for now.
               <br>
               I assume this list will grow significantly, so I'll rejig the layout and styling as and when necessary.
             </p>
           </div>
-               
+        </div>
+        <div class="panel panel2"> <h3>Cultural Blogs</h3>
+          <div class="subpage-links">
+            <a href="https://zak-hynd.github.io/blog/learning-plan.html">Learning Plan </a>
+            <a href="https://zak-hynd.github.io/blog/identity-values.html">Identity & Values </a>
+          </div>
+        </div>
+      </div>
  
+
+
+
     <br>
      <div class="magic-square-container">
       <div class="magicbox"></div>
@@ -50,3 +63,49 @@
     </main>
   </body>
 </html>
+
+
+<style>
+
+.blogs-responsive-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  /* padding: 1rem; */
+}
+
+.panel {
+  /* background-color: #f0f0f0; */
+  /* padding: 1rem; */
+  /* border: 1px solid #ccc; */
+  /* text-align: center; */
+}
+
+
+/* magic squares */
+  .magic-square-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content:center;
+    margin: 0.2rem;
+  }
+
+  .magicbox {
+    background-color: #ffffff22;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 0.3rem;
+    margin-left: 3.8rem;
+    margin-right: 3.8rem;
+  }
+
+
+
+  /* Media query for wider screens */
+  @media (min-width: 600px) {
+      .blogs-responsive-grid {
+          grid-template-columns: 1fr 1fr;
+      } 
+  }
+  </style>
