@@ -117,7 +117,7 @@ code {
   
 
   /* Subpagelinks stuff */
-  .subpage-link a {
+  .subpage-links a {
     display: block;
     /* width: fit-content; */
     max-width: 38rem;
@@ -127,7 +127,7 @@ code {
     position: relative;   
   }
 
-  .subpage-link a::before {
+  .subpage-links a::before {
     content: "•";
     position: absolute;
     left: 0.5rem;
