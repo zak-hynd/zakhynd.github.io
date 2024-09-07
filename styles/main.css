@@ -5,20 +5,70 @@
 /* base styles */
 HTML {
   background-color: #363e46;
-  font-size: min(1.5min, 25px);
+  color: #120d50;
+  font-family: 'Roboto', Arial, sans-serif;
+  font-size: 16px;
+  /* font-size: min(1.5min, 25px); */
+  line-height: 1.3rem;
   /* background-image: url('https://zak-hynd.github.io/styles/PXL_20240819_080845952.NIGHT.jpg'); */
   /* background-position: top; */
   /* background-size: cover; */
 }
 
+/* Navigation bar styles */
+nav {
+  font-size: 1.5rem;
+  color: slategrey;
+  position: sticky;
+  top: 0;
+  margin: -1.8rem;
+  padding: 0.6rem;
+  background-color: #363e46;
+}
+
+nav::before {
+content: "😳\00a0";
+z-index: 1000;
+}
+
+nav::after {
+content: "ដើម្បី​បំបែក​យ៉ាង​ក្លាហាន...";
+text-wrap: nowrap;
+font-weight: bold;
+position: absolute;
+left: 25%;
+}
+nav a {
+padding-left: 0.5rem;
+padding-right: 0.5rem;
+color: #120d50;
+background-color: #778899aa;
+z-index: 999;
+}
+
+
 body {
-    background-color: lightslategrey;
-    color: #120d50;
-    font-family: 'Roboto', Arial, sans-serif;
-    line-height: 1.4;
-    padding: 1.5rem;
-    max-width: 700px;
-    margin: auto;
+  background-color: lightslategrey;
+  padding: 1.8rem;
+  max-width: 700px;
+  margin: auto;
+}
+
+.pagetitle {
+  font-size: 1.8rem;
+  margin-top: 5rem;
+  font-weight: bold;
+  text-align: left;
+  margin-left: 0.5rem;
+  margin-bottom: 0rem;
+}
+.pagetitle-flexbox {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+  align-items: first baseline;
+  column-gap: 0.5rem;
+  row-gap: 0rem;
 }
 
 a {
@@ -29,11 +79,12 @@ a {
   text-decoration: none;
 }
 
-a:hover, .box:hover {
+a:hover, .magicbox:hover {
   background-color: #ba6aff77;
   transition: background-color 0.5s ease;
 }
 
+/* comment box */
 .comment {
   font-style: italic;
   color: #324643;
@@ -56,37 +107,7 @@ code {
   padding: 0.3rem;
 }
 
-/* All the top of page stuff */
-.homelinkthing {
-    font-size: 1.5rem;
-    display: block;
-    transition: background-color 0.5s ease;
-    margin-left: -1rem;
-    margin-top: -1rem;
-  }
-
-  .homelinkthing a {
-    text-decoration: none;
-  }
-
-.pageheading {
-    margin-bottom: 1rem;
-  }
-
-  .pagetitle {
-    font-size: 1.5rem;
-    font-weight: bolder;
-    text-align: left;
-    margin-left: 1.2rem;
-  }
-
-  .pagesubtitle {
-    font-weight:bold;
-    font-style: oblique;
-    margin-left: 0.2rem;
-  }
-
-  .pagesummary{
+.bordered-panel {
     background-color: #00000009;
     border-radius: 0.3rem;
     border: 0.1rem solid #00000055;
@@ -125,7 +146,7 @@ code {
   }
 
   /* magic squares */
-  .responsive-container {
+  .magic-square-container {
     display: flex;
     flex-wrap: wrap;
     gap: 1.5rem;
@@ -133,7 +154,7 @@ code {
     margin: 0.2rem;
   }
 
-  .box {
+  .magicbox {
     background-color: #ffffff22;
     width: 2rem;
     height: 2rem;
