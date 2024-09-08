@@ -119,11 +119,11 @@
     padding-right: 0.5rem;
     text-decoration: none;
   }
-  .demolink-static a::before, .demolink-relative a::before , .demolink-absolute a::before , .demolink-fixed a::before , .demolink-sticky a::before {
+  .demolink-static a::before, .demolink-relative a::after , .demolink-absolute a::before , .demolink-fixed a::before , .demolink-sticky a::before {
     content: "•";
     font-size: 1.7rem;
   }
-  .demolink-relative a::after , .demolink-absolute a::after , .demolink-fixed a::after {
+  .demolink-relative a::before , .demolink-absolute a::after , .demolink-fixed a::after {
     content: "•";
     font-size: 1.7rem;
     color: #ff00f75d;
@@ -133,14 +133,17 @@
   .demolink-static a::before {
     position: static;
   }
-  .demolink-relative a::before {
-    position: relative;
-    left: -10px;
-    top: 5px;
-  }
   .demolink-relative a::after {
     position: relative;
-    left: -7.9rem;
+    left: -8.5rem;
+    top: 0.3rem;
+    /* this is the black one */
+  }
+  .demolink-relative a::before { 
+    position: static;
+    /* left: -10rem; */
+    /* top: 0; */
+    /* this is the pink one */
   }
   .demolink-absolute a::before {
     position: absolute;
