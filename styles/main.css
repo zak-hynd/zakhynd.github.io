@@ -22,7 +22,7 @@ nav {
   position: sticky;
   top: 0;
   margin: -1.8rem;
-  padding: 0.6rem;
+  padding: 0.5rem;
   background-color: #363e46;
 }
 
@@ -35,8 +35,8 @@ nav::after {
 content: "ដើម្បី​បំបែក​យ៉ាង​ក្លាហាន...";
 text-wrap: nowrap;
 font-weight: bold;
-position: absolute;
-left: 20%;
+position: relative;
+margin-left: 1rem;
 }
 nav a {
 padding-left: 0.5rem;
@@ -85,6 +85,8 @@ a {
   transition: background-color 0.5s ease;
   border-radius: 0.4rem;
   text-decoration: none;
+  padding-left: 0.3rem;
+  padding-right: 0.3rem;
 }
 
 a:hover, .magicbox:hover {
