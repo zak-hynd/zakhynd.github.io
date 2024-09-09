@@ -94,15 +94,20 @@ a {
   padding-right: 0.3rem;
 }
 
-a:hover, .magicbox:hover {
+a:hover, .magicbox:hover, hr:hover {
   background-color: #ba6aff77;
   transition: background-color 0.5s ease;
 }
 
 hr {
-  color: #363e46;
-  font-weight: 900;
+  background-color: #ffffff22;
+  border: none;
   max-width: 90%;
+  height: 0.1rem;
+}
+hr:hover {
+  background-color: #ba6aff77;
+  transition: background-color 0.5s ease;
 }
 
 /* comment box */
