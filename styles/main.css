@@ -9,7 +9,7 @@ HTML {
   font-family: 'Roboto', Arial, sans-serif;
   font-size: 16px;
   /* font-size: min(1.5min, 25px); */
-  line-height: 1.3rem;
+  /* line-height: 1.3rem; */
   /* background-image: url('https://zak-hynd.github.io/styles/PXL_20240819_080845952.NIGHT.jpg'); */
   /* background-position: top; */
   /* background-size: cover; */
@@ -36,13 +36,13 @@ content: "ដើម្បី​បំបែក​យ៉ាង​ក្លាហ�
 text-wrap: nowrap;
 font-weight: bold;
 position: absolute;
-left: 25%;
+left: 20%;
 }
 nav a {
 padding-left: 0.5rem;
 padding-right: 0.5rem;
 color: #120d50;
-background-color: #778899aa;
+background-color: #778899dd;
 z-index: 999;
 }
 
@@ -50,12 +50,20 @@ z-index: 999;
 body {
   background-color: lightslategrey;
   padding: 1.8rem;
-  max-width: 700px;
+  max-width: 800px;
   margin: auto;
 }
 
+/* Headings  */
+h1, h2 {
+  margin-top: 3rem;
+}
+h3 {
+  margin-top: 2rem;  
+}
+
 .pagetitle {
-  font-size: 1.8rem;
+  font-size: 2rem;
   margin-top: 5rem;
   font-weight: bold;
   text-align: left;
@@ -134,22 +142,4 @@ code {
     left: 0.5rem;
     top: -0.0rem;
     font-size: 1.4rem;
-  }
-
-  /* magic squares */
-  .magic-square-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-    justify-content:center;
-    margin: 0.2rem;
-  }
-
-  .magicbox {
-    background-color: #ffffff22;
-    width: 2rem;
-    height: 2rem;
-    border-radius: 0.3rem;
-    margin-left: 3.8rem;
-    margin-right: 3.8rem;
   }
