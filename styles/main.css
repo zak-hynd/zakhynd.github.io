@@ -115,12 +115,11 @@ hr:hover {
   font-style: italic;
   color: #324643;
   width: fit-content;
-  margin-left: 1.5rem;
-  border-left: 0.1rem solid #dddddaa; 
-  padding-left: 0.2rem;
-  padding-right: 0.5rem;
+  /* margin-left: 1.5rem; */
+  border-left: 0.1rem solid #ddddddaa; 
+  padding: 0.25rem;
   background-color: #337e7866;
-  font-size: 0.7rem;
+  font-size: 0.75rem;
 }
 
 code {
@@ -129,7 +128,7 @@ code {
   color: #ada984;
   width: fit-content;
   margin-left: 1rem;
-  font-family: sans-serif;
+  font-family: 'Roboto Mono', monospace, sans-serif;
   padding: 0.3rem;
 }
 
