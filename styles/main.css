@@ -8,11 +8,6 @@ HTML {
   color: #120d50;
   font-family: 'Roboto', Arial, sans-serif;
   font-size: 16px;
-  /* font-size: min(1.5min, 25px); */
-  /* line-height: 1.3rem; */
-  /* background-image: url('https://zak-hynd.github.io/styles/PXL_20240819_080845952.NIGHT.jpg'); */
-  /* background-position: top; */
-  /* background-size: cover; */
 }
 
 /* Navigation bar styles */
@@ -25,11 +20,10 @@ nav {
   color: slategrey;
   position: sticky;
   top: 0;
-  /* left: 0; */
   margin: -1.8rem;
   padding: 0.5rem;
   background-color: #363e46;
-  z-index: 999;
+  z-index: 900;
 }
 
 nav::before {
@@ -146,8 +140,6 @@ code {
   /* Subpagelinks stuff */
   .subpage-links a {
     display: flex;
-    /* width: fit-content; */
-    /* max-width: 38rem; */
     margin: 0.4rem;
     gap: 0.4rem;
     padding-left: 1rem;
@@ -161,6 +153,4 @@ code {
     font-weight: bolder;
     position: relative;
     left: 0.5rem;
-    /* top: -0.0rem; */
-    /* font-size: 1.4rem; */
   }
