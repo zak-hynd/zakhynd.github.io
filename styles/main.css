@@ -109,7 +109,7 @@ hr:hover {
   font-style: italic;
   color: #324643;
   width: fit-content;
-  /* margin-left: 1.5rem; */
+  margin-left: 0.3rem;
   border-left: 0.1rem solid #ddddddaa; 
   padding: 0.25rem;
   background-color: #337e7866;
@@ -124,6 +124,7 @@ code {
   margin-left: 1rem;
   font-family: 'Roboto Mono', monospace, sans-serif;
   padding: 0.3rem;
+  border-radius: 0.4rem;
 }
 
 .bordered-panel {
