@@ -92,10 +92,15 @@ a:hover, .magicbox:hover, hr:hover {
   background-color: #ba6aff77;
   transition: background-color 0.5s ease;
 }
+hr:hover {
+  border-color: #ba6aff77;
+  transition: border-color 0.5s ease;
+}
 
 hr {
   background-color: #ffffff22;
-  border: none;
+  border: 0.1rem;
+  border-color: lightslategrey;
   max-width: 90%;
   height: 0.1rem;
 }
