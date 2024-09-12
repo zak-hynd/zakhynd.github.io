@@ -77,11 +77,168 @@
         So the DOM is not part of the JavaScript language, but it does allow JavaScript to interact with the webpage and do its magic.  On that note, the DOM can also be used by other programming languages, such as Python.
         <br><br>
         The DOM is often referred to as a tree structure, a hierarchical tree of nodes. Each node represents an HTML element that can be called on and manipulated by a program/code, usually JavaScript.
+      </p><p>
+
+        <img src="https://zak-hynd.github.io/blog/resources/W3_TB_DOM_html.png" width=400 alt="basic page/document structure in HTML">
+        <br><br>
+        This bit of HTML code above, for example, can be represented as a hierarchical tree of nodes in the image below. When the HTML is structured this way, with the nested indentations, it’s easy enough to understand.
+        <br><br>
+        <img src="https://zak-hynd.github.io/blog/resources/W3_TB_DOM_tree.png" width=300 height=auto alt="the DOM tree-node representation of the previous image's HTML structure">
       </p>
-      <div class="reactive-grid">
-       <img src="https://zak-hynd.github.io/blog/resources/W3_TB_DOM_html.png" alt="basic page/document structure in HTML">
-       <img src="https://zak-hynd.github.io/blog/resources/W3_TB_DOM_tree.png" alt="the DOM tree-node representation of the previous image's HTML structure">
-      </div>
+      <p>
+        Here’s an example of how JavaScript can be written to interact with the DOM for the HTML document above:
+        <code>
+          document.documentElement.children[1].children[0].textContent = 'Cat Facts 2000';
+        </code>
+        In this JavaScript code, we ‘navigate’ the hierarchy of nodes, starting with the document. Each “.” (full-stop/period) takes us further into the document structure.
+        <ul>
+          <li>document.documentElement: This is the <b>html</b> element/node.li>
+          <li>children[1]: This selects the second child of the<b>html</b> element, which is the <b>body</b> element/node.</li>
+          <li>children[0]: This selects the first child of the <b>body</b> element, which is the <b>h1</b> heading.</li>
+       </ul>
+       On that heading, we change the textContent to ‘Cat Facts 2000’. So, the webpage heading changes from <b>“My Page’s First Heading”</b> to <b>“Cat Facts 2000”</b>.
+       <br><br>
+       So the webpage heading changes from “My Page’s First Heading” to “Cat Facts 2000”.
+       <br><br>
+       However, that code is pretty horrible! Nobody would actually write it like that, instead they’d probably skip straight to the heading by calling its ID, like so:
+        <code>
+          document.getElementById('heading').textContent = 'Cat Facts 2000'
+        </code>
+        <br><br>
+        So that’s a basic starter on the DOM and webpage manipulation with JavaScript. Now, about that element children counting thing [1]. That’s a good segue into my next segment…
+        </p>
+
+        <!-- END OF DOM START OF JS -->
+        <h2>JavaScript stuff</h2>
+        <h3>Arrays vs Objects</h3>
+        <h4>Arrays</h4>
+        <p>
+          That counting thing I mentioned, children[0] being the first child, well that’s arrays for ya. Pretty universal in coding languages, an array is a list of things, and the first position of that list is counted as zero, the second is one, and so on. Kinda bizarre - it can trip you up a lot, but you get used to it.
+          <br><br>
+          An array can contain lots of different information like text (strings), numbers, other arrays, etc.
+          <br>A simple array might look like this:
+          <code>
+            animals = [‘zebra’, ‘flatworm’, ‘jellyfish’, ‘scallop’]
+          </code>
+          <br>
+          Like the children[0] example in the previous section on the DOM, if I want to retrieve the first item in this list of animals I would call
+          <br>
+          <code> animals[0]</code>
+          <br>
+          And if I call animals[3] then I would get the fourth item in the list: <b>scallop</b>!
+        </p>
+        <h4>Objects</h4>
+        <p>
+          Objects are another way of storing things, but it’s a little more sophisticated than an array. You can have a list of things (keys) with attributes (value), key-value pairs.
+          <br>To continue the theme, this is an example of a simple object:
+          <code>
+            animalCounts: {
+            <br>&nbsp  zebra: 5,
+            <br>&nbsp  flatworm: 3.5,
+            <br>&nbsp  jellyfish: ‘???',
+            <br>&nbsp  scallop: 42
+            <br>}
+          </code>
+          <br><br>
+          If I want to retrieve the count of jellyfish for something, I would use the same kind of dot-hierarchical structure as I mentioned in the DOM section and have something like this:
+          <code>
+            document.getElementById('heading').textContent = animalCount.jellyfish
+          </code>
+          <br>Which would result in that heading changing to
+          <br><b>???</b>
+        </p>
+
+        <!-- LOOPS  -->
+         <h2>Control Flow and Loops</h2>
+         <p>
+          Unfortunately, I couldn’t think of a good segue from the previous section into this one.
+          <br>Sad panda.<br>
+          The exercise brief says to explain Control Flow and Loops using an example from everyday life, so away we go…
+        <h3>Control Flow</h3>
+          Control flow refers to the order in which individual statements, instructions, or function calls are executed in a program. In everyday life, control flow is like following a set of instructions step by step.
+          <br>For example, making coffee in the morning:
+          <ol>
+            <li>Start: Lazily decide to make a cup of coffee.</li>
+            <li>Check that I have coffee beans.
+                <ol type="a">
+                    <li>If yes, proceed to step 3.</li>
+                    <li>If no, check if I have instant coffee.
+                        <ol type="i">
+                            <li>If yes, boil water, pour into a mug, add instant coffee, then move to step 6.</li>
+                            <li>If no: cry.</li>
+                        </ol>
+                    </li>
+                </ol>
+            </li>
+            <li>Grind the beans.</li>
+            <li>Fill the moka reservoir with water.</li>
+            <li>Add the ground coffee to the bowl thing, assemble the moka pot, heat it on the stove top, wait for it to finish, pour into a mug.</li>
+            <li>Check if there’s milk.
+                <ol type="a">
+                    <li>If yes, then add milk to mug.</li>
+                    <li>If no, skip.</li>
+                </ol>
+            </li>
+            <li>Check if there’s brown sugar.
+                <ol type="a">
+                    <li>If yes, add as many as energy levels dictate.</li>
+                    <li>If no, skip.</li>
+                </ol>
+            </li>
+            <li>Drink liquid in mug.</li>
+        </ol>
+        It’s just following a set of instructions, a bit like a recipe (although most recipes don’t have so many contingency options!)
+        </p>
+        <h3>Loops</h3>
+        <p>
+          Loops allow you to repeat a set of instructions until a certain condition is met. In everyday life, a loop is like repeating a task until it’s complete. For example, emptying the dishwasher.
+          <ol>
+            <li>Start: Dishwasher cycle ends. Open dishwasher.</li>
+            <li>Check if there are items in the dishwasher.
+                <ol type="a">
+                    <li>If yes, move on to step 3.</li>
+                    <li>If no, close the dishwasher.</li>
+                </ol>
+            </li>
+            <li>Remove an item from the dishwasher, put the item away in its right place, and return to step 2.</li>
+        </ol>
+        </p>
+
+      <!-- FuNCTIONS! -->
+       <h2>Functions</h2>
+       <p>
+        What Are Functions?
+        <br>Functions are fundamental building blocks in JavaScript and other programming languages. A function is a block of code designed to perform a particular task.
+        <br>An example of a function, in some kinda pseudocode, might be something like:
+        <code>
+        function checkDishwasher(){
+        <br>&nbsp  If (dishwasher is closed) {
+        <br>&nbsp &nbsp  openDishwasher()
+        <br>&nbsp  } else {
+        <br>&nbsp &nbsp removeItem()
+        <br>&nbsp }
+        <br>  }
+        </code>
+        <br>
+        <br>
+        In this function, I’ve got some instructions, which call on other functions. Once I write a function, I can reuse it wherever I like, I don’t have to rewrite it, and I don’t have to see all its complexity.
+        <br><br>
+        Why are they useful?
+        <ul>
+          <li><b>Reusability:</b> write code once and reuse it multiple times. This reduces redundancy and makes your code more maintainable.</li>
+          <li><b>Modularity:</b> Functions help break down complex problems into smaller, manageable pieces. Each function can handle a specific task, making your code easier to understand and debug.</li>
+          <li><b>Abstraction:</b> Functions allow you to hide the implementation details and expose only the necessary interface. This makes your code cleaner and more readable.</li>
+          <li><b>Scope & Encapsulation:</b> Functions create their own scope, meaning variables declared inside a function are not accessible outside of it. This helps prevent variable name conflicts and keeps code organised.
+          </li>
+        </ul>
+       </p>
+
+       <p>
+        Whooof. I’m already way over the timeboxed suggestion for this exercise, and I still haven’t mashed it into some form of readable HTML!
+        <br>
+        <br>
+        <b>END</b>
+       </p>
       
 
     </main>
@@ -89,10 +246,11 @@
   </body>
 </html>
 <style>
-  .reactive-grid {
-    display: flex;
-    flex-wrap: wrap;
+  img {
+    max-width: 30rem;
+    height: auto;
   }
+  
   
 </style>
 <script>
