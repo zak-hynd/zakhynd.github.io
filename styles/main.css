@@ -32,7 +32,8 @@ content: "😳\00a0";
 
 nav::after {
 content: "ដើម្បី​បំបែក​យ៉ាង​ក្លាហាន...";
-text-wrap: nowrap;
+/* text-wrap: nowrap; */
+text-overflow: ellipsis;
 font-weight: bold;
 position: relative;
 margin-left: 0.5rem;
