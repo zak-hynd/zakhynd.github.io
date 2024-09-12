@@ -43,12 +43,12 @@
 
       <h2>What is JS, and how does it fit with HTML and CSS?</h2>
       <p>
-        Daniel Thé has a good intro <a href="https://www.youtube.com/watch?v=gT0Lh1eYk78">video here.</a>
-        Where she uses several useful analogies. Similarly to a country like Belgium, which has 3 official languages (German, French, and <s>Dutch</s> Flemish), the internet has 3 primary languages: HTML, CSS, and Javascript.
+        YouTuber <b>Daniel Thé</b> has a good intro <a href="https://www.youtube.com/watch?v=gT0Lh1eYk78">video here</a>
+        where she uses several useful analogies. Similarly to a country like Belgium, which has 3 official languages (German, French, and <s>Dutch</s> Flemish), the internet has 3 primary languages: HTML, CSS, and Javascript.
         She calls them the Tres Amigos - the builder (HTML), the artist (CSS), and the “wizard” (JS).
         </p><p>
         Now I don’t <i>love</i> this analogy, it’s far from perfect
-        <comment>(since when do you need to invoke magic to get productive stuff done between a builder and an artist?? A half-decent Product/Project Manager will do!!!)</comment>
+        <span class="comment">since when do you need to invoke magic to get productive stuff done between a builder and an artist?? A half-decent Product/Project Manager will do!!!</span>
         , but the analogy is good enough for the purpose of introducing them at a high level:
         <ul>
           <li>Hypertext Markup Language (HTML): Structures the content.</li>
@@ -61,8 +61,8 @@
         In the beginning, in the 1980’s, there was HTML which was used for all the webpage content, providing elements for various headings, links, paragraphs, etc.
         <br> CSS was developed in the mid 90’s. It was designed to separate the page/document styling from the structure, and allowed pages to be styled much more efficiently.
         <br> Roughly a year later JS was created to create interactivity within pages.
-        <br> As web development evolved, these three languages were adapted, the modularity of distinct functionality was useful, and they became the standard of web development, supported by all web browsers.
-        <br>If, hypothetically, a new language was introduced to replace these three amigos, backwards compatibility would become an issue.
+        <br><br> As web development evolved, these three languages were adapted, the modularity of distinct functionality was useful, and they became the standard of web development, supported by all web browsers.
+        <br><br>If, hypothetically, a new language was introduced to replace these three amigos, backwards compatibility would become an issue.
         </p><p>
           Now is a good time to segue to the DOM…
       </p>
@@ -70,9 +70,8 @@
       <h2>What is the DOM?</h2>
       <p>
         The Document Object Model (DOM) is a programming interface that allows programs to manipulate the document’s (the page’s) structure, style, and content. The DOM is an Application Programming Interface (API), which is a set of tools and protocols for building and interacting with software applications.
-        <br>All the initialisms!
-        <br>
-        <comment> DOM, API, HTML, CSS, JS, BS, LOL</comment>
+        <br><b>All the initialisms!</b>
+        <span class="comment">DOM, API, HTML, CSS, JS, BS, LOL</span>
         <br><br>
         So the DOM is not part of the JavaScript language, but it does allow JavaScript to interact with the webpage and do its magic.  On that note, the DOM can also be used by other programming languages, such as Python.
         <br><br>
@@ -90,9 +89,10 @@
         <code>
           document.documentElement.children[1].children[0].textContent = 'Cat Facts 2000';
         </code>
+        <br>
         In this JavaScript code, we ‘navigate’ the hierarchy of nodes, starting with the document. Each “.” (full-stop/period) takes us further into the document structure.
         <ul>
-          <li>document.documentElement: This is the <b>html</b> element/node.li>
+          <li>document.documentElement: This is the <b>html</b> element/node.</li>
           <li>children[1]: This selects the second child of the<b>html</b> element, which is the <b>body</b> element/node.</li>
           <li>children[0]: This selects the first child of the <b>body</b> element, which is the <b>h1</b> heading.</li>
        </ul>
