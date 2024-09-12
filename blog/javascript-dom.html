@@ -78,11 +78,11 @@
         The DOM is often referred to as a tree structure, a hierarchical tree of nodes. Each node represents an HTML element that can be called on and manipulated by a program/code, usually JavaScript.
       </p><p>
 
-        <img src="https://zak-hynd.github.io/blog/resources/W3_TB_DOM_html.png" width=400 alt="basic page/document structure in HTML">
+        <img src="https://zak-hynd.github.io/blog/resources/W3_TB_DOM_html.png" alt="basic page/document structure in HTML">
         <br><br>
         This bit of HTML code above, for example, can be represented as a hierarchical tree of nodes in the image below. When the HTML is structured this way, with the nested indentations, it’s easy enough to understand.
         <br><br>
-        <img src="https://zak-hynd.github.io/blog/resources/W3_TB_DOM_tree.png" width=300 height=auto alt="the DOM tree-node representation of the previous image's HTML structure">
+        <div class="image-container"> <img id="dom-tree" src="https://zak-hynd.github.io/blog/resources/W3_TB_DOM_tree.png" width=00 height=auto alt="the DOM tree-node representation of the previous image's HTML structure"></div>
       </p>
       <p>
         Here’s an example of how JavaScript can be written to interact with the DOM for the HTML document above:
@@ -93,8 +93,8 @@
         In this JavaScript code, we ‘navigate’ the hierarchy of nodes, starting with the document. Each “.” (full-stop/period) takes us further into the document structure.
         <ul>
           <li>document.documentElement: This is the <b>html</b> element/node.</li>
-          <li>children[1]: This selects the second child of the <b>html</b> element, which is the <b>body</b> element/node.</li>
-          <li>children[0]: This selects the first child of the <b>body</b> element, which is the <b>h1</b> heading.</li>
+          <li>children[1]: This selects the <i>second</i>* child of the <b>html</b> element, which is the <b>body</b> element/node. <span class="comment">*What, 1 is second?! Yea, I'll cover that in a bit...</span></li>
+          <li>children[0]: This selects the <i>first</i> child of the <b>body</b> element, which is the <b>h1</b> heading.</li>
        </ul>
        On that heading, we change the textContent to ‘Cat Facts 2000’. So, the webpage heading changes from <b>“My Page’s First Heading”</b> to <b>“Cat Facts 2000”</b>.
        <br><br>
@@ -247,13 +247,15 @@
   </body>
 </html>
 <style>
-  img {
-    max-width: 35rem;
-    height: auto;
-  }
+ .image-container {
+  overflow: hidden;
+  max-width: 60%;
+}
   
   
 </style>
 <script>
+// document.getElementById('dom-tree').style.width = min('50%' , '20rem') ;
+// document.getElementById('dom-tree').style.object-fit: contain;
 
 </script>
