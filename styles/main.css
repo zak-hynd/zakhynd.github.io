@@ -65,6 +65,12 @@ h1, h2, h3, h4 {
   margin-bottom: 0rem;
 }
 
+img {
+  max-width: 100%;
+  width: 100%;
+  height:auto;
+}
+
 .pagetitle {
   font-size: 2rem;
   margin-top: 5rem;
