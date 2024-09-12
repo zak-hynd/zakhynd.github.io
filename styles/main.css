@@ -112,12 +112,12 @@ hr {
   font-size: 0.75rem;
 }
 
-code {
+.code {
   display: inline-block;
   background-color: #00000055;
   color: #ada984;
-  width: fit-content;
-  margin-left: 1rem;
+  /* width: fit-content; */
+  /* margin-left: 1rem; */
   font-family: 'Roboto Mono', monospace, sans-serif;
   padding: 0.3rem;
   border-radius: 0.4rem;
