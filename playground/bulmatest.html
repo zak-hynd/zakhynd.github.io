@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>JavaScript & the DOM</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" rel="stylesheet">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌊</text></svg>">
+    <meta name="robots" content="noindex, nofollow">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar is-light" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="https://zak-hynd.github.io">⌂←</a>
+        </div>
+    </nav>
+
+    <!-- Page Title Section -->
+    <section class="section">
+        <div class="container">
+            <h1 class="title">JavaScript & the DOM</h1>
+            <p class="subtitle"><i>Foundations W3 Technical Blog</i></p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="section">
+        <div class="container">
+
+            <!-- Bordered Panel -->
+            <div class="box">
+                <p>Check out the <a href="https://student-handbook.devacademy.life/foundations/curriculum/sprint-3/02-tech/t6-sprint3-technical-blog#discuss">exercise brief</a> and the related <a href="https://student-handbook.devacademy.life/foundations/curriculum/sprint-3/02-tech/t3-js-dom-primer/d6-research">research on the DOM.</a></p>
+                <ul>
+                    <li>JavaScript and its relationship to HTML and CSS</li>
+                    <li>Control flow and loops, arrays, and objects</li>
+                    <li>Functions and why they are useful</li>
+                    <li>The DOM and DevTools</li>
+                </ul>
+            </div>
+
+            <p>Well, I don't exactly cover devTools in this blog, but I sure as hell used it a lot to check things out and make sure that I'm not lying!</p>
+
+            <!-- JavaScript Fundamentals Section -->
+            <h1 class="title">JavaScript Fundamentals</h1>
+
+            <h2 class="subtitle">What is JS, and how does it fit with HTML and CSS?</h2>
+            <p>YouTuber <b>Daniel Thé</b> has a good intro <a href="https://www.youtube.com/watch?v=gT0Lh1eYk78">video here</a> where she uses several useful analogies. She calls HTML, CSS, and JavaScript the "Tres Amigos" — the builder (HTML), the artist (CSS), and the "wizard" (JS).</p>
+
+            <h3 class="subtitle is-4">Why three languages? Why not one?</h3>
+            <p>In the beginning, there was HTML, which was used for all webpage content. CSS was developed in the mid-90s to separate styling from structure, and a year later, JavaScript was created for interactivity. As web development evolved, these three languages became the standard, supported by all browsers.</p>
+
+            <h2 class="subtitle">What is the DOM?</h2>
+            <p>The Document Object Model (DOM) is a programming interface that allows programs to manipulate a document’s structure, style, and content. It is often referred to as a tree structure of nodes, where each node represents an HTML element that can be manipulated by JavaScript or other programming languages.</p>
+
+            <!-- Images with descriptions -->
+            <figure class="image">
+                <img src="https://zak-hynd.github.io/blog/resources/W3_TB_DOM_html.png" alt="basic page/document structure in HTML">
+                <figcaption>HTML structure example</figcaption>
+            </figure>
+            <figure class="image">
+                <img id="dom-tree" src="https://zak-hynd.github.io/blog/resources/W3_TB_DOM_tree.png" alt="the DOM tree-node representation">
+                <figcaption>DOM tree-node representation</figcaption>
+            </figure>
+
+            <!-- Example JavaScript Code -->
+            <pre><code>document.documentElement.children[1].children[0].textContent = 'Cat Facts 2000';</code></pre>
+
+            <!-- Further Content -->
+            <h2 class="subtitle">JavaScript stuff</h2>
+            <h3 class="subtitle is-4">Arrays vs Objects</h3>
+            <h4 class="subtitle is-5">Arrays</h4>
+            <p>An array can contain different types of information like strings, numbers, and other arrays. A simple array might look like this:</p>
+            <pre><code>let animals = ['zebra', 'flatworm', 'jellyfish', 'scallop'];</code></pre>
+            <h4 class="subtitle is-5">Objects</h4>
+            <p>Objects are another way to store data with key-value pairs. Here is an example of an object:</p>
+            <pre><code>const animalCounts = {
+  zebra: 5,
+  flatworm: 3.5,
+  jellyfish: '???',
+  scallop: 42
+};</code></pre>
+
+            <!-- Control Flow and Loops -->
+            <h2 class="subtitle">Control Flow and Loops</h2>
+            <h3 class="subtitle is-4">Control Flow</h3>
+            <p>Control flow refers to the order in which individual statements, instructions, or function calls are executed in a program. Example:</p>
+            <ol>
+                <li>Start: Decide to make coffee.</li>
+                <li>Check that you have coffee beans. If yes, proceed; if no, check for instant coffee, or cry if neither.</li>
+                <li>... (Steps continue)</li>
+            </ol>
+
+            <h3 class="subtitle is-4">Loops</h3>
+            <p>Loops allow you to repeat a set of instructions until a certain condition is met. For example, emptying the dishwasher:</p>
+            <ol>
+                <li>Start: Open the dishwasher after the cycle ends.</li>
+                <li>Check for items, remove, and repeat until empty.</li>
+            </ol>
+
+            <!-- Functions -->
+            <h2 class="subtitle">Functions</h2>
+            <p>Functions are reusable blocks of code designed to perform a specific task. Example of a function in pseudo-code:</p>
+            <pre><code>function checkDishwasher() {
+  if (dishwasher is closed) {
+    openDishwasher();
+  } else {
+    removeItem();
+  }
+}</code></pre>
+
+            <p>Functions are useful for code reusability, modularity, abstraction, and maintaining scope and encapsulation.</p>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="content has-text-centered">
+            <p><strong>END</strong></p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
