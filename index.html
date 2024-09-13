@@ -30,70 +30,69 @@
         <br>
         <hr>
 
-
-      <div class="blogs-responsive-grid">
-        <div class="panel panel1"><h3>Tech Blogs</h3>
-          <div class="subpage-links">
-            <a href="https://zak-hynd.github.io/blog/javascript-dom.html">JavaScript & the DOM</a>
-            <a href="https://zak-hynd.github.io/blog/html-css.html">HTML-CSS: positioning</a>
-            <a href="https://zak-hynd.github.io/blog/te-houtaewa-template.html">Te Houtaewa </a>
-            <p class="comment">
-              eugh, I don't really like this word 'blog', but I guess I'll roll with it for now.
-              <br>
-              I assume this list will grow significantly, so I'll rejig the layout and styling as and when necessary.
-            </p>
+      <div><h2>Write-ups</h2>
+        <div class="one-two-responsive-grid">
+          <div class="panel panel1"><h3>Tech-stuff</h3>
+            <div class="subpage-links">
+              <a href="https://zak-hynd.github.io/blog/javascript-dom.html">JavaScript & the DOM</a>
+              <a href="https://zak-hynd.github.io/blog/html-css.html">HTML-CSS: positioning</a>
+            </div>
+          </div>
+          <div class="panel panel2"> <h3>Human-stuff</h3>
+            <div class="subpage-links">
+              <a href="https://zak-hynd.github.io/blog/emotional-intelligence.html">Emotional Intelligence </a>
+              <a href="https://zak-hynd.github.io/blog/learning-plan.html">Learning Plan </a>
+              <a href="https://zak-hynd.github.io/blog/identity-values.html">Identity & Values </a>
+            </div>
           </div>
         </div>
-        <div class="panel panel2"> <h3>Cultural Blogs</h3>
-          <div class="subpage-links">
-            <a href="https://zak-hynd.github.io/blog/emotional-intelligence.html">Emotional Intelligence </a>
-            <a href="https://zak-hynd.github.io/blog/learning-plan.html">Learning Plan </a>
-            <a href="https://zak-hynd.github.io/blog/identity-values.html">Identity & Values </a>
-          </div>
-        </div>
+        <br><hr>
       </div>
       
-      <div><h3>Other things...</h3>
-        <div class="subpage-links">
-            <a href="https://github.com/zak-hynd/zak-hynd.github.io">GitHub repo </a>
-            <a href="https://zak-hynd.github.io/playground/bulmatest.html">Testing Bulma CSS Framework </a>
-         </div>
+      <div class="one-two-responsive-grid">
+        <div><h3>Miscellaneous</h3>
+          <div class="subpage-links">
+              <a href="https://github.com/zak-hynd/zak-hynd.github.io">About | GitHub repo </a>
+              <a href="https://zak-hynd.github.io/playground/bulmatest.html">Testing Bulma CSS Framework </a>
+              <a href="https://zak-hynd.github.io/blog/te-houtaewa-template.html">Te Houtaewa </a>
+          </div>
         </div>
-
- 
-
-
-
+        <div>
+            <!-- empty space for something -->
+        </div>       
+      </div>
+      <hr>
+      
     </main>
-    <br>
-    <hr>
-    <br>
-     <div class="magic-square-container">
-      <div class="magicbox"></div>
-      <div class="magicbox"></div>
-      <div class="magicbox"></div>
-      <div class="magicbox"></div>
+    
+    <div>
+      <br>
+      <div class="magic-square-container">
+        <div class="magicbox"></div>
+        <div class="magicbox"></div>
+        <div class="magicbox"></div>
+        <div class="magicbox"></div>
+      </div>
+      <!-- <br> -->
     </div>
+     
+    <footer>
+      <!-- Bah! I give up trying to get this thing to play nicely -->
+      <!-- <hr> -->
+      <!-- <p>&nbsp</p> -->
+    </footer> 
   </body>
 </html>
 
 
 <style>
 
-.blogs-responsive-grid {
+.one-two-responsive-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1rem;
-  /* padding: 1rem; */
+  padding: 1rem;
 }
-
-.panel {
-  /* background-color: #f0f0f0; */
-  /* padding: 1rem; */
-  /* border: 1px solid #ccc; */
-  /* text-align: center; */
-}
-
 
 /* magic squares */
   .magic-square-container {
@@ -111,13 +110,13 @@
     border-radius: 0.3rem;
     margin-left: 3.8rem;
     margin-right: 3.8rem;
+    /* margin: auto; */
   }
-
 
 
   /* Media query for wider screens */
   @media (min-width: 600px) {
-      .blogs-responsive-grid {
+      .one-two-responsive-grid {
           grid-template-columns: 1fr 1fr;
       } 
   }
