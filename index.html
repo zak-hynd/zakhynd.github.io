@@ -59,7 +59,8 @@
         </div>
         <div>
             <!-- empty space for something -->
-            <iframe width=auto height=auto src="https://www.youtube.com/embed/DfEr5XCFNWM?si=nWZ7vOI4cYe2Mmf2" title="NASA Live: ISS" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+            <iframe class="responsive-iframe" src="https://www.youtube.com/embed/DfEr5XCFNWM?si=nWZ7vOI4cYe2Mmf2" title="NASA Live: ISS" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <!-- <iframe width=auto height=auto src="https://www.youtube.com/embed/DfEr5XCFNWM?si=nWZ7vOI4cYe2Mmf2" title="NASA Live: ISS" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin"></iframe> -->
         </div>       
       </div>
       <hr>
@@ -87,6 +88,15 @@
 
 
 <style>
+
+.responsive-iframe {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  aspect-ratio: 16/9;
+  border: none;
+  margin: auto;
+}
 
 .one-two-responsive-grid {
   display: grid;
