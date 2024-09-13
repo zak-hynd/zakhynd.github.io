@@ -2,8 +2,9 @@
 ## About this repository...
 In the absence of any creative inspiration, or grand enthusiasm for sharing a lot about myself, I'll just start rambling...
 
-So, I'm taking this (Dev Academy)[https://devacademy.co.nz/] course... wait, this is a markdown file... why is that link being a dick?
-As part of the stretch-materials (extra for experts/bored/nothingbettertodo) for the second week of the course, it was suggested that we explore markdown a bit and edit this README.md file.
+So, I'm taking this [Dev Academy](https://devacademy.co.nz/) course where we use GitHub to build a website to practice, and demonstrate our <sub>in</sub>competence with HTML, CSS, JavaScript, etc. As part of the stretch-materials _(extra for experts/bored<sup>&nothingbettertodo</sup>)_ for the second week of the course, it was suggested that we explore markdown a bit and edit this README.md file.
+
+To quote a section:
 
 >Some ideas for exploration are:
 >
