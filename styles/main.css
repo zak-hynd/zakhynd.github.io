@@ -50,7 +50,8 @@ background-color: #778899dd;
 body {
   background-color: lightslategrey;
   padding: 1.8rem;
-  max-width: 800px;
+  max-width: 850px;
+  min-height: 90vh;
   margin: auto;
 }
 
