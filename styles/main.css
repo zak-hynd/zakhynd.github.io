@@ -31,7 +31,7 @@ content: "😳\00a0";
 }
 
 nav::after {
-content: "ដើម្បី​បំបែក​យ៉ាង​ក្លាហាន...";
+content: "ដើម្បីបំបែកវត្ថុដោយក្លាហាន...";
 /* text-wrap: nowrap; */
 text-overflow: ellipsis;
 font-weight: bold;
