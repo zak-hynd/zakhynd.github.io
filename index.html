@@ -27,6 +27,7 @@
         <div class="bordered-panel">
           Kia ora Taiao!<span class="comment">Hello World! trope twist</span>  This is the beginning of my wee website. It will eventually contain a list of links to all my <a href="https://devacademy.co.nz/">Dev Academy</a> learning assignment 'blogs', and perhaps some other random crap that I decide to throw in for the craic.
         </div>
+        <button onclick="toggleComments()">Toggle Comments</button>
         <br>
         <hr>
 
@@ -138,3 +139,24 @@
       } 
   }
   </style>
+
+
+
+  <script>
+
+    // I will probably move this to a main.js page at some point, but this is a test...
+    function toggleComments() {
+    // Select all elements with class 'comment'
+    const comments = document.querySelectorAll('.comment');
+    
+    comments.forEach(comment => {
+        // Toggle visibility
+        if (comment.style.display === "none") {
+            comment.style.display = "";  // Show (default display)
+        } else {
+            comment.style.display = "none";  // Hide
+        }
+    });
+    }
+
+  </script>

@@ -84,7 +84,7 @@ h1, h2, h3, h4 {
   row-gap: 0rem;
 }
 
-a {
+a, button {
   color: inherit;
   background-color: #ffffff22;
   transition: background-color 0.5s ease;
@@ -94,7 +94,7 @@ a {
   padding-right: 0.3rem;
 }
 
-a:hover, .magicbox:hover, hr:hover {
+a:hover, .magicbox:hover, hr:hover , button:hover {
   background-color: #ba6aff77;
   transition: background-color 0.5s ease;
 }
