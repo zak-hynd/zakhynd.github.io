@@ -114,18 +114,20 @@ img {
 }
 
 blockquote {
-  background: #f9f9f9;
-  border-left: 10px solid #ccc;
-  margin: 1.5em 10px;
-  padding: 0.5em 10px;
+  /* display: block; */
+  background: #ffffff22;
+  border-left: 0.4rem solid #ffffff55;
+  margin: 0.2rem 0.7rem;
+  padding: 0.5em 0.3rem;
   quotes: "\201C""\201D""\2018""\2019";
+  border-radius: 0.2rem;
 }
 blockquote:before {
-  color: #ccc;
+  color: #ffffff55;
   content: open-quote;
-  font-size: 4em;
-  line-height: 0.1em;
-  margin-right: 0.25em;
+  font-size: 4rem;
+  line-height: 0.1rem;
+  margin-right: 0.5rem;
   vertical-align: -0.4em;
 }
 blockquote p {
