@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Problem solving</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script> -->
+    <script type="module" src="https://md-block.verou.me/md-block.js"></script>
+    <link href="https://zak-hynd.github.io/styles/main.css" rel="stylesheet" type="text/css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌊</text></svg>">
+    <meta name="robots" content="noindex, nofollow">
+  </head>
+  
+  <body>
+    <nav>
+      <a href="https://zak-hynd.github.io">⌂←</a>
+     </nav>
+
+     <div class="pagetitle-flexbox">
+      <div class="pagetitle">Problem Solving</div>
+      <div><p><b><i>Foundations W4 Technical Blog</i></b></p></div>    
+     </div>
+
+    <main>
+        <div class="bordered-panel">
+        This week’s sprint covered Testing, Problem Solving, Psuedocoding and, of course, more JavaScript. The purpose of this blog is to discuss those experiences, then share this blog with the class.
+        <br> <a href="https://student-handbook.devacademy.life/foundations/curriculum/sprint-4/02-tech/t7-sprint4-technical-blog">Link to the brief.</a>
+        </div>
+
+
+        <p> Kind of an aside; the instructions say 
+            <br> <b><i>"Open the problem-solving.html file you created."</i></b>
+            <br> But I don’t recall ever being prompted on any of the previous course pages to create that file, until now. I assume it’s just a mistake and that there aren’t any prior instructions that I have completely missed… if that’s the case, I don’t care.
+        </p>
+
+<!-- wooot! I can write this in markdown -->
+<md-block>
+
+
+# Discus 🥏
+**Tell your non-tech friend a story about...**
+
+## Blocked on a simple problem
+
+I was trying to complete the ~~fizzbuzz~~ flipflop challenge where I had to take a number and change that number under certain conditions. I was confident that my solution worked, at least for the first parts of the challenge, but the tests kept failing on me.
+
+**What problem-solving techniques did you use?**  I often chunk a problem up by writing some pseudocode, and google/search for methods that I can use and how to use them. But I don't really consider those to be what I used in order to troubleshoot this particular problem.
+- I tried reading the error messages, but they weren't particularly helpful - they just said my results were "undefined".
+- I tried checking the test file to see what the criteria were that were being thrown at my code.
+- I tried console-logging the results of each part of my code - that had mixed success because most of the time the console.log doesn't work while running the test suite! So I would end up copying-out my code to run in a separate file that is disconnected to the test framework. There I could see that my code was fine.
+- I tried the rubber ducky method with an AI chatbot, and it was helpful, but didn't fully understand the context of the testing framework, so wasn't fruitful.
+- I was _about_ to call out for help in the Discord channel, starting to type out my issue (more rubber ducky), when I looked closer at what the test results were saying... they were referring to another file that I had been thinking was meant for another challenge!
+
+**How did I feel during this troubleshooting phase?** Well it was quite frustrating. A little humbling. It was getting late in the afternoon, and my energy levels were dropping, so I parked my efforts on this challenge and moved on to the next one for a bit before calling it quits for the day.
+
+**What did I learn?** Well I learned to pay more attention to *ALL* the text that the test results throw at you, despite some of it seeming like gibberish at first glance.  I also learned how to reference/call/use code that is written in another file.
+
+## Elegantly solved a problem
+
+**What was the problem?** Well, to avoid overthinking this exercise, I'm just going to use the first problem that came to my head, despite not being a particularly challenging one!  So there was a challenge where we had to take some text which had the word "buzz" scattered through it, and we had to return the text sentence without the buzz. I simply used a method called split() to split up that text at every instance of ' buzz', then rejoin all the split pieces of the sentence. 
+
+**What problem-solving techniques did I use?** My technique worked perfectly for the first part of the challenge, and I didn't actually need to employ any problem solving techniques: that was my first try.
+However, it didn't pass the second test, which threw a bunch of different variants of 'buzz' with different capitalised letters. So, my elegant solution needed to evolve, and I employed some pseudocoding, trying different methods, console.logging the results of each stage, and searching online for what javascript methods can be used for certain things.
+
+**How did you feel throughout the process?** Fine, this wasn't a particularly intense problem to solve, so I just calmly stepped through the parts, improving and learning as I went. It didn't take that long.
+
+**What did you learn?** Ooof, I can't remember! Probably learnt a lot more about certain methods, but there was a lot of that in these series of exercises. For one, I recall trying to use the 'includes()' method because find() doesn't work on a string... However, I then found out that the way I was using that method didn't solve the challenge, so I had to step back and use find() since it returns the FIRST instance of something.
+...well, that's rambly.
+
+## Reflect: confidence with problem-solving techniques/processes
+
+* **Pseudocode** - I think I'm ok with this. I could always be more disciplined about using it for the challenges I face, get more practice writing it, but I don't find it always necessary.
+* **Trying something** - trying... yea that's kind of my default! Trying something, if I have an idea, and checking the results. Iterate.
+* **Rubber ducky method** - I probably should try this more often when struggling with an issue. Write down, even just to myself, what the problem is that I'm witnessing - as if I'm about to ask for help. 
+* **Reading error messages** - YES... this one I need to pay more attention to!
+* **Console.logging** - always a good one to use - that's if the damned console will work!
+* **Googling** - I should possibly get more familiar with this
+* **Asking your peers for help** - ...I haven't needed to so far, but once we're in bootcamp I assume it'll be much easier to do. And more necessary.
+* **Asking coaches for help** - I _almost_ reached out for help yesterday morning for the flipflop problem, as I said earlier. Yep, I don't want to be annoying, but if I'm stuck on something, I will try to swallow my reluctances and ask. 
+* **Improving your process with reflection** - splash my face with water to wake up and look at how haggard I am in the mirror? Oh, not _that_ reflection. Yea, this seems related to psuedocoding and rubby-ducky, where simply thinking about, and writing, a problem can help break it down and illuminate where things are going wrong. I should do this more often.
+
+## Reluctance to ask for help
+**Reflect on a time you were reluctant to ask for help. Consider what made you reluctant to do so. What might you try differently next time?**
+
+Well well well, didn't I already answer this earlier?
+
+Haaaaah the stuperFlipFlop.
+
+I considered crying for help several times, but I was reluctant, primarily because I wanted to be able to troubleshoot it _myself_, learn those skills! However, I am cognizant about committing tooo much time on a problem, diminishing returns, sunken cost fallacy, all the other fallacies.
+
+Since I had initially thought that maybe something was wrong with my tests' code, I didn't want to sound like an idiot requesting for help when I was entirely wrong about that... which I was! So there's the issue of letting go of the ego, right. That's something else to swallow.
+
+</md-block>
+<!-- end of markdown section -->
+
+    </main>
+    <br>
+    <hr>
+  </body>
+</html>
+
+<style>
+</style>
+
