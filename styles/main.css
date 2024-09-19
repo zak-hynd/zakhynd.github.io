@@ -128,7 +128,7 @@ blockquote:before {
   font-size: 4rem;
   line-height: 0.1rem;
   margin-right: 0.5rem;
-  vertical-align: -0.4em;
+  vertical-align: -1.8rem;
 }
 blockquote p {
   display: inline;
