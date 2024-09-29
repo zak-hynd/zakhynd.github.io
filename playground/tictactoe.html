@@ -1,0 +1,245 @@
+<html></html>
+    <head>
+        <title>Tiktaktau</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+        <script type="module" src="https://md-block.verou.me/md-block.js"></script>
+        <link href="https://zak-hynd.github.io/styles/main.css" rel="stylesheet" type="text/css">
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌊</text></svg>">
+        <meta name="robots" content="noindex, nofollow">
+        <!-- vv copied from sprint5 exercise -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="main.css">
+    </head>
+
+    <body>
+        <nav>
+            <a href="https://zak-hynd.github.io">⌂←</a>
+        </nav>
+
+        <div>
+            <h1>Tic-Tac-Toe</h1>        
+            <br>
+            <table>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+            <h2 id="subtitle">Click on a cell to start!</h2>
+            <button>New Round</button>
+            <h2 id="tally"></h2>
+            <!-- <script src="game.js"></script> -->
+        </div>
+    </body>
+</html>
+
+
+<style>
+button {
+  font-family: 'Permanent Marker', cursive;
+  }
+
+h2 {
+    font-family: 'Permanent Marker', cursive;
+}
+
+table {
+    margin-right: center;
+    margin-left: center;
+    margin: 0 auto;
+    border-spacing: 0;
+    border-collapse: collapse;
+    background-color: white;
+    font-family: 'Permanent Marker', cursive;
+  }
+  
+
+h1 {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 2vw;
+    color: black;
+  }
+  
+td {
+    width: 8vw;
+    height: 8vw;
+    text-align: center;
+    font-size: 300%;
+    border: black solid 3px;
+    color: black;
+  }
+
+h2 {
+  text-align: center;
+  font-size: 2vw;
+  color: #4c2c92;
+}  
+</style>
+
+<script>
+//initial parameters
+let gameIsOver = false
+let noughtsTurn = Math.random() >= 0.5 //randomise the start player
+document.getElementById("subtitle").innerHTML = `Your start, ${noughtsTurn ? 'O' : 'X'}.<br> Click on a cell to start.`
+        // ^^ Tweak the initial guidance text
+
+//---------Setup the cells and event listener
+let cells = document.getElementsByTagName("TD")
+    //set up the IDs for each of the cells, and assign what happens when clicked
+for (let i = 0; i < cells.length; i++) {
+    cells[i].id = i; // assign id to cell
+    cells[i].onclick = cellClick; // <--do the thing = when cell is clicked
+}
+
+
+//----------reset button-------------
+let resetButton = document.getElementsByTagName("button")[0]
+    resetButton.onclick = resetBoard; //listener action
+
+function resetBoard() {
+    gameIsOver = false
+    noughtsTurn = Math.random() >= 0.5 //rerandomise the start player
+    document.getElementById("subtitle").innerHTML = `Your start, ${noughtsTurn ? 'O' : 'X'}.<br> Click on a cell to start.`
+        //vv clear all cells
+    Array.from(cells).forEach(element => {
+        element.innerHTML = "";
+        element.style.setProperty('background-color', 'white', 'important'); //reset background colour
+    });
+    blockedCell(); //block a random cell
+}
+
+//---------random blocked cell-----------
+    //function random number between 0 and 8
+        //set cells's innerHTML to "-"
+    //NEXT: increase rand cell count at reset
+        // let blockedCellCount = 0
+        //loop with length = blockedCellCount
+            //set a random blocked cell
+function blockedCell(){
+    let randCell = Math.floor(Math.random() *9) //random 0-8 int
+    cells[randCell].innerHTML = "-"
+    cells[randCell].style.setProperty('background-color', 'darkgrey', 'important');
+}
+    
+
+//------points tally---------
+let tally = {
+    O: 0,
+    X: 0,
+    Draw: 0
+}
+document.getElementById("tally").innerHTML = `<br>Scores<br> O: ${tally.O}<br> X: ${tally.X}<br> tie: ${tally.Draw}`
+
+
+//--------Click behaviour------------
+function cellClick() {
+    if (gameIsOver || this.innerHTML !== "") return; // Exit if game is over or cell is not empty
+    playCell(this, noughtsTurn ? 'O' : 'X'); // Ternary: if true then 'O', else 'X'
+}
+
+    //does the stuff when player clicks empty cell
+function playCell (cellID, player) {
+    cellID.innerHTML = player //set the table cell's contents to X/O
+    // cells[cellID.id] = player //set the array value to the player symbol
+    checkForWin(player)
+}
+
+//---------Checking--------
+
+// //want to overwrite the fugly code with perty code
+    //but CBF troubleshooting right now
+// const winningCombos = [
+//     [0, 1, 2], [3, 4, 5], [6, 7, 8], // Horizontal lines
+//     [0, 3, 6], [1, 4, 7], [2, 5, 8],    // Vertical lines
+//     [0, 4, 8], [2, 4, 6]                // Diagonal lines
+// ]
+
+function checkForWin(symbol) {
+//fugly code for determining if there's a win in each row, column, and diagnonal
+//calls the endgame function with the winner
+    // HORIZONTAL LINES //
+    if (cells[0].innerHTML == symbol && cells[1].innerHTML == symbol && cells[2].innerHTML == symbol)
+        endGame(symbol,[cells[0],cells[1],cells[2]])
+ 
+    else if (cells[3].innerHTML == symbol && cells[4].innerHTML == symbol && cells[5].innerHTML == symbol)
+        endGame(symbol,[cells[3],cells[4],cells[5]])
+
+    else if (cells[6].innerHTML == symbol && cells[7].innerHTML == symbol && cells[8].innerHTML == symbol)
+        endGame(symbol,[cells[6],cells[7],cells[8]])
+
+    // Vertical lines //
+    else if (cells[0].innerHTML == symbol && cells[3].innerHTML == symbol && cells[6].innerHTML == symbol)
+        endGame(symbol,[cells[0],cells[3],cells[6]])
+    
+    else if (cells[1].innerHTML == symbol && cells[4].innerHTML == symbol && cells[7].innerHTML == symbol)
+        endGame(symbol,[cells[1],cells[4],cells[7]])
+
+    else if (cells[2].innerHTML == symbol && cells[5].innerHTML == symbol && cells[8].innerHTML == symbol)
+        endGame(symbol,[cells[2],cells[5],cells[8]])
+
+     // diagonal lines //
+    else if (cells[0].innerHTML == symbol && cells[4].innerHTML == symbol && cells[8].innerHTML == symbol)
+        endGame(symbol,[cells[0],cells[4],cells[8]])
+    
+    else if (cells[6].innerHTML == symbol && cells[4].innerHTML == symbol && cells[2].innerHTML == symbol)
+        endGame(symbol,[cells[6],cells[4],cells[2]])
+
+
+    //draw, all cells filled
+    else if (Array.from(cells).every(cell => cell.innerHTML !== ""))
+        endGame('STALEMATE',[])
+    
+    //call the function if not a draw and no winner
+    else (nextTurn())
+}
+
+    //change the board if no winner yet
+function nextTurn(){
+    noughtsTurn = !noughtsTurn //switch turns
+        //vv Change the game instruction text to the next player
+    document.getElementById("subtitle").innerHTML = `It's ${noughtsTurn ? 'O' : 'X'}'s turn.<br>Hurry up ${noughtsTurn ? 'O' : 'X'}`
+        //vv update background colour of played cells
+    Array.from(cells).forEach(element => {
+        if (element.innerHTML !== "" && element.innerHTML !== "-") {
+            element.style.setProperty('background-color', 'lightgrey', 'important');
+        }
+    });
+}
+
+    //deals with all the endgame activities
+function endGame (winner,winningCells) { 
+    gameIsOver = true
+    if (winner !== 'STALEMATE') {
+        document.getElementById("subtitle").innerHTML = `Game over. ${winner} wins!`;
+        tally[winner] += 1; //update win tally
+    } else {
+        document.getElementById("subtitle").innerHTML =  winner;
+        tally.Draw += 1; //update draw tally
+    }
+        //vv update printed scores
+    document.getElementById("tally").innerHTML = `<br>Scores<br> O: ${tally.O}<br> X: ${tally.X}<br> tie: ${tally.Draw}`
+    // document.getElementById("tally").innerHTML = tally //nope, doesn't work!
+    //vv update colours of winning cells
+    winningCells.forEach(element => {
+        element.style.setProperty('background-color', 'magenta', 'important');
+    });
+}
+
+</script>
