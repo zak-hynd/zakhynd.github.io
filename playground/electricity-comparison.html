@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Electricity Plan Comparison</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <script type="module" src="https://md-block.verou.me/md-block.js"></script>
+    <link href="https://zak-hynd.github.io/styles/main.css" rel="stylesheet" type="text/css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌊</text></svg>">
+    <meta name="robots" content="noindex, nofollow">
+  </head>
+  <body>
+    <nav></nav>
+      <a href="https://zak-hynd.github.io">⌂←</a>
+     </nav>
+
+     <div class="pagetitle-flexbox">
+      <div class="pagetitle">Electricity Plan Comparison</div>
+      <div><p><b><i>Foundations W6 Personal Project</i></b></p></div>    
+     </div>
+
+    <main>
+        <div class="bordered-panel">
+          New Zealand's electricity market is currently facing significant challenges, with wholesale prices reaching unprecedented highs. As a result, my electricity provider, Electric Kiwi, has shifted me to a more expensive plan, unable to sustain their previously competitive rates. While comparison tools like <a href="https://powerswitch.org.nz">Powerswitch</a> exist to help consumers find better deals, I haven't found a platform that allows you to input your historical electricity usage and see how it stacks up across multiple providers' plans.
+        </div>
+        <br>
+        <hr>
+
+        <p>
+        Staging
+        <ul>
+          <li>import usage csv & parse</li>
+          <li>calculate costs (wth hardcoded EK costs)</li>
+          <li>display costs</li>
+          <li>allow changing costs (eg move Hour of Power)</li>
+          <li>comparison tool (hardcoded cost plans)</li>
+          <li>edit/save different plans</li>
+          <li>...</li>
+        </ul>
+        </p>
+
+
+        <h1>H1</h1>
+    <input type="file" id="csvFile" accept=".csv">
+    <button onclick="processCSV()">Upload CSV</button>
+    <div id="results"></div>
+
+    <script>
+        function processCSV() {
+            const fileInput = document.getElementById('csvFile');
+            const file = fileInput.files[0];
+            const reader = new FileReader();
+
+            reader.onload = function(event) {
+                const csvData = event.target.result;
+                const rows = csvData.split('\n');
+                let totalCost = 0;
+
+                rows.forEach(row => {
+                    const columns = row.split(',');
+                    const kWh = parseFloat(columns[1]); // Assuming kWh is in the second column
+                    const costPerKWh = 0.15; // Example price plan
+                    totalCost += kWh * costPerKWh;
+                });
+
+                document.getElementById('results').innerText = `Total Cost: $${totalCost.toFixed(2)}`;
+            };
+
+            reader.readAsText(file);
+        }
+    </script>
+    </main>
+  </body>
+</html>
