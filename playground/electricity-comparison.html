@@ -27,49 +27,92 @@
         <br>
         <hr>
 
-        <p>
-        Staging
+        
+        <h1>Do do</h1>
         <ul>
-          <li>import usage csv & parse</li>
-          <li>calculate costs (wth hardcoded EK costs)</li>
+          <li>calculate costs (wth hardcoded EK costs and usage data)</li>
           <li>display costs</li>
-          <li>allow changing costs (eg move Hour of Power)</li>
-          <li>comparison tool (hardcoded cost plans)</li>
-          <li>edit/save different plans</li>
+          <li>compare hardcoded usage across more plans (EK, Flick, Contact, Meridian, etc.)</li>
+          <li>import usage csv & parse</li>
+          <li>add custom plans</li>
           <li>...</li>
         </ul>
-        </p>
+        
 
 
-        <h1>H1</h1>
-    <input type="file" id="csvFile" accept=".csv">
+        <h2>Hard-coded plans</h2>
+        <div id="ekMoveMaster"></div>
+
+    <!-- <input type="file" id="csvFile" accept=".csv">
     <button onclick="processCSV()">Upload CSV</button>
-    <div id="results"></div>
+    <div id="results"></div> -->
 
-    <script>
-        function processCSV() {
-            const fileInput = document.getElementById('csvFile');
-            const file = fileInput.files[0];
-            const reader = new FileReader();
-
-            reader.onload = function(event) {
-                const csvData = event.target.result;
-                const rows = csvData.split('\n');
-                let totalCost = 0;
-
-                rows.forEach(row => {
-                    const columns = row.split(',');
-                    const kWh = parseFloat(columns[1]); // Assuming kWh is in the second column
-                    const costPerKWh = 0.15; // Example price plan
-                    totalCost += kWh * costPerKWh;
-                });
-
-                document.getElementById('results').innerText = `Total Cost: $${totalCost.toFixed(2)}`;
-            };
-
-            reader.readAsText(file);
-        }
-    </script>
+    
     </main>
   </body>
 </html>
+
+
+<script>
+
+//harcoded data
+const hardcodedData = [
+['we', 0.066, 0.06, 0.056, 0.059, 0.05, 0.075, 0.046, 0.06, 0.06, 0.505, 0.07, 0.041, 0.059, 0.061, 0.043, 0.064, 0.222, 0.187, 0.621, 1.286, 1.182, 0.253, 0.079, 0.064, 0.108, 0.127, 0.095, 0.111, 0.619, 1.013, 1.191, 0.269, 0.114, 0.08, 0.116, 0.145, 0.248, 0.247, 0.164, 0.206, 0.151, 0.136, 1.223, 1.257, 1.233, 1.256, 1.194, 1.158],
+['d', 0.048, 0.551, 0.05, 0.06, 0.061, 0.044, 0.07, 0.042, 0.069, 0.039, 0.049, 0.08, 0.485, 0.153, 0.061, 0.088, 0.084, 0.046, 0.609, 1.173, 1.539, 0.309, 0.098, 0.102, 0.061, 0.072, 0.058, 0.135, 0.605, 0.06, 0.078, 0.052, 0.071, 0.06, 0.086, 0.058, 0.455, 0.867, 0.408, 0.185, 0.133, 0.155, 1.132, 0.348, 0.189, 0.157, 0.103, 0.551],
+['d', 0.065, 0.048, 0.068, 0.044, 0.068, 0.489, 0.057, 0.055, 0.05, 0.637, 0.171, 0.119, 0.128, 0.387, 0.181, 0.071, 0.05, 0.055, 0.634, 1.259, 1.543, 1.216, 0.687, 0.084, 0.129, 0.128, 0.733, 0.164, 0.079, 0.673, 0.052, 0.077, 0.051, 0.078, 0.045, 0.075, 0.122, 0.233, 0.145, 0.165, 0.188, 0.189, 0.959, 0.162, 0.128, 0.136, 0.081, 0.073],
+['d', 0.174, 0.168, 0.66, 0.168, 0.184, 0.156, 0.22, 0.186, 0.196, 0.182, 0.181, 0.187, 0.362, 1.346, 0.239, 0.061, 0.104, 0.129, 0.67, 1.186, 1.198, 1.241, 0.319, 1.018, 0.509, 0.06, 0.078, 0.063, 0.666, 0.083, 0.072, 0.064, 0.073, 0.095, 0.072, 0.077, 0.07, 0.135, 0.183, 0.237, 0.196, 0.448, 1.769, 0.843, 0.656, 0.353, 0.09, 0.052],
+['d', 0.062, 0.051, 0.076, 0.057, 0.071, 0.053, 0.056, 0.509, 0.072, 0.087, 0.08, 0.047, 1.11, 0.698, 0.047, 0.136, 0.052, 0.065, 0.619, 0.589, 0.069, 0.065, 0.141, 0.055, 0.06, 0.056, 0.064, 0.434, 0.16, 0.07, 0.212, 0.065, 0.085, 0.092, 0.072, 0.075, 0.078, 1.013, 0.369, 0.231, 0.242, 0.243, 1.236, 0.54, 0.453, 0.155, 0.192, 0.154],
+['d', 1.012, 0.046, 0.064, 0.067, 0.059, 0.069, 0.066, 0.062, 0.382, 0.375, 0.082, 0.056, 0.056, 0.051, 0.053, 0.502, 0.091, 0.107, 0.618, 1.239, 0.397, 0.073, 0.054, 0.078, 0.048, 0.087, 0.045, 0.436, 0.209, 0.088, 0.079, 0.059, 0.066, 0.065, 0.056, 0.075, 0.087, 0.149, 0.497, 0.196, 0.12, 0.222, 1.481, 0.47, 0.272, 0.464, 0.388, 0.06],
+['we', 0.054, 0.067, 0.078, 0.051, 0.561, 0.051, 0.075, 0.091, 0.116, 0.118, 0.135, 0.147, 0.135, 0.144, 0.133, 0.241, 0.167, 0.078, 0.608, 0.133, 0.246, 0.456, 0.136, 0.699, 0.075, 0.125, 0.069, 0.285, 0.212, 0.263, 0.457, 0.133, 0.156, 0.092, 0.26, 0.533, 0.805, 0.867, 0.581, 0.183, 0.228, 0.245, 1.749, 1.503, 1.365, 1.324, 1.175, 1.168]
+];
+
+//hardcoded priceplans
+  //Electric Kiwi MoveMaster
+const ekMoveMaster = {
+  dayrate: 1.43,
+  weekday: [0.1723, 0.1723, 0.1723, 0.1723, 0.1723, 0.1723, 0.1723, 0.1723, 0.1723, 0.1723, 0.1723, 0.1723, 0.1723, 0.1723, 0.3446, 0.3446, 0.3446, 3.3446, 0.2413, 0.2413, 0.2413, 0.2413, 0.2413, 0.2413, 0.2413, 0.2413, 0.2413, 0.2413, 0.2413, 0.2413, 0.2413, 0.2413, 0.2413, 0.2413, 0.3446, 0.3446, 0.3446, 0.3446, 0.3446, 0.3446, 0.3446, 0.3446, 0, 0, 0.2413, 0.2413, 0.1723, 0.1723],
+  weekend: [0.1723, 0.1723, 0.1723, 0.1723, 0.1723, 0.1723, 0.1723, 0.1723, 0.1723, 0.1723, 0.1723, 0.1723, 0.1723, 0.1723, 0.2413, 0.2413, 0.2413, 0.2413, 0.2413, 0.2413, 0.2413, 0.2413, 0.2413, 0.2413, 0.2413, 0.2413, 0.2413, 0.2413, 0.2413, 0.2413, 0.2413, 0.2413, 0.2413, 0.2413, 0.2413, 0.2413, 0.2413, 0.2413, 0.2413, 0.2413, 0.2413, 0.2413, 0, 0, 0.2413, 0.2413, 0.1723, 0.1723]
+}
+
+  //Meridian Low user Special Freedom Plan Economy 24
+const merLow = {
+
+  } 
+
+  //Meridian Special Freedom Plan Economy 24
+const merStd = {
+
+}
+
+
+
+
+// Function to calculate the total cost based on the price plans
+function calculateCost(data, pricePlan) {
+    let totalCost = 0;
+    let numDays = data.length;
+
+    data.forEach((row, rowIndex) => { // Go row by row, for each day
+        const dayType = row[0]; // 'd' for weekday, 'e' for weekend
+        const rates = (dayType === 'we') ? pricePlan.weekend : pricePlan.weekday;
+
+        row.forEach((value, colIndex) => {
+            if (colIndex > 0) { // Skip the first column (day type)
+                const kWh = parseFloat(value);
+                const costPerKWh = rates[colIndex - 1]; // Adjust index for price plan
+                totalCost += kWh * costPerKWh;
+            }
+        });
+    });
+
+    // Add the dayrate for each day
+    totalCost += numDays * pricePlan.dayrate;
+
+    return totalCost;
+}
+
+console.log(calculateCost(hardcodedData,ekMoveMaster))
+
+document.getElementById("ekMoveMaster").innerHTML = `Electric Kiwi MoveMaster: $${calculateCost(hardcodedData,ekMoveMaster)}`
+
+</script>
