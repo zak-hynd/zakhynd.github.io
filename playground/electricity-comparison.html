@@ -30,8 +30,8 @@
         <md-block>
           # To Do
           - <s>calculate costs (wth hardcoded EK costs and usage data)</s>
-          - compare hardcoded usage across more plans (EK, Flick, Contact, Meridian, etc.)
-            - figure out how to structure pricing plans under the hood
+          - <s>compare hardcoded usage across more plans (EK, Flick, Contact, Meridian, etc.)</s>
+            - figure out how to improve the pricing plan structure under the hood
           - display costs betterer
             - average weekly/daily
           - import ek usage csv & parse it into shape
@@ -44,8 +44,14 @@
         </md-block>
 
         <hr>
-        <h2>Hard-coded plans</h2>
-        <div id="ekMoveMaster"></div>
+        <h2>Vitalstatistications</h2>
+        <div id="usageStats"></div>
+        <div id="plan1"></div>
+        <div id="plan2"></div>
+        <div id="plan3"></div>
+        <div id="plan4"></div>
+        <div id="plan5"></div>
+        <div id="plan6"></div>
 
 
 
@@ -58,8 +64,10 @@
 
 <script>
 
-//harcoded data
-const hardcodedData = [
+
+
+//------------harcoded usage data
+const hardcodedUsageData = [
 ['we', 0.066, 0.06, 0.056, 0.059, 0.05, 0.075, 0.046, 0.06, 0.06, 0.505, 0.07, 0.041, 0.059, 0.061, 0.043, 0.064, 0.222, 0.187, 0.621, 1.286, 1.182, 0.253, 0.079, 0.064, 0.108, 0.127, 0.095, 0.111, 0.619, 1.013, 1.191, 0.269, 0.114, 0.08, 0.116, 0.145, 0.248, 0.247, 0.164, 0.206, 0.151, 0.136, 1.223, 1.257, 1.233, 1.256, 1.194, 1.158],
 ['d', 0.048, 0.551, 0.05, 0.06, 0.061, 0.044, 0.07, 0.042, 0.069, 0.039, 0.049, 0.08, 0.485, 0.153, 0.061, 0.088, 0.084, 0.046, 0.609, 1.173, 1.539, 0.309, 0.098, 0.102, 0.061, 0.072, 0.058, 0.135, 0.605, 0.06, 0.078, 0.052, 0.071, 0.06, 0.086, 0.058, 0.455, 0.867, 0.408, 0.185, 0.133, 0.155, 1.132, 0.348, 0.189, 0.157, 0.103, 0.551],
 ['d', 0.065, 0.048, 0.068, 0.044, 0.068, 0.489, 0.057, 0.055, 0.05, 0.637, 0.171, 0.119, 0.128, 0.387, 0.181, 0.071, 0.05, 0.055, 0.634, 1.259, 1.543, 1.216, 0.687, 0.084, 0.129, 0.128, 0.733, 0.164, 0.079, 0.673, 0.052, 0.077, 0.051, 0.078, 0.045, 0.075, 0.122, 0.233, 0.145, 0.165, 0.188, 0.189, 0.959, 0.162, 0.128, 0.136, 0.081, 0.073],
@@ -69,53 +77,138 @@ const hardcodedData = [
 ['we', 0.054, 0.067, 0.078, 0.051, 0.561, 0.051, 0.075, 0.091, 0.116, 0.118, 0.135, 0.147, 0.135, 0.144, 0.133, 0.241, 0.167, 0.078, 0.608, 0.133, 0.246, 0.456, 0.136, 0.699, 0.075, 0.125, 0.069, 0.285, 0.212, 0.263, 0.457, 0.133, 0.156, 0.092, 0.26, 0.533, 0.805, 0.867, 0.581, 0.183, 0.228, 0.245, 1.749, 1.503, 1.365, 1.324, 1.175, 1.168]
 ];
 
-//hardcoded priceplans
+const bobUsage = [
+  ['d', 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+  ['we', 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+];
+
+const bob2Usage = [
+['d',1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48],
+['we',48, 47, 46, 45, 44, 43, 42, 41, 40, 39, 38, 37, 36, 35, 34, 33, 32, 31, 30, 29, 28, 27, 26, 25, 24, 23, 22, 21, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
+]
+
+
+// ------------Priceplans----------------
+
   //Electric Kiwi MoveMaster
 const ekMoveMaster = {
-  dayrate: 1.43,
-  weekday: [0.1723, 0.1723, 0.1723, 0.1723, 0.1723, 0.1723, 0.1723, 0.1723, 0.1723, 0.1723, 0.1723, 0.1723, 0.1723, 0.1723, 0.3446, 0.3446, 0.3446, 3.3446, 0.2413, 0.2413, 0.2413, 0.2413, 0.2413, 0.2413, 0.2413, 0.2413, 0.2413, 0.2413, 0.2413, 0.2413, 0.2413, 0.2413, 0.2413, 0.2413, 0.3446, 0.3446, 0.3446, 0.3446, 0.3446, 0.3446, 0.3446, 0.3446, 0, 0, 0.2413, 0.2413, 0.1723, 0.1723],
-  weekend: [0.1723, 0.1723, 0.1723, 0.1723, 0.1723, 0.1723, 0.1723, 0.1723, 0.1723, 0.1723, 0.1723, 0.1723, 0.1723, 0.1723, 0.2413, 0.2413, 0.2413, 0.2413, 0.2413, 0.2413, 0.2413, 0.2413, 0.2413, 0.2413, 0.2413, 0.2413, 0.2413, 0.2413, 0.2413, 0.2413, 0.2413, 0.2413, 0.2413, 0.2413, 0.2413, 0.2413, 0.2413, 0.2413, 0.2413, 0.2413, 0.2413, 0.2413, 0, 0, 0.2413, 0.2413, 0.1723, 0.1723]
+  dayRate: 1.43,
+  weekend: [0.1723, 0.1723, 0.1723, 0.1723, 0.1723, 0.1723, 0.1723, 0.1723, 0.1723, 0.1723, 0.1723, 0.1723, 0.1723, 0.1723, 0.2413, 0.2413, 0.2413, 0.2413, 0.2413, 0.2413, 0.2413, 0.2413, 0.2413, 0.2413, 0.2413, 0.2413, 0.2413, 0.2413, 0.2413, 0.2413, 0.2413, 0.2413, 0.2413, 0.2413, 0.2413, 0.2413, 0.2413, 0.2413, 0.2413, 0.2413, 0.2413, 0.2413, 0, 0, 0.2413, 0.2413, 0.1723, 0.1723],
+  weekday: [0.1723, 0.1723, 0.1723, 0.1723, 0.1723, 0.1723, 0.1723, 0.1723, 0.1723, 0.1723, 0.1723, 0.1723, 0.1723, 0.1723, 0.3446, 0.3446, 0.3446, 0.3446, 0.2413, 0.2413, 0.2413, 0.2413, 0.2413, 0.2413, 0.2413, 0.2413, 0.2413, 0.2413, 0.2413, 0.2413, 0.2413, 0.2413, 0.2413, 0.2413, 0.3446, 0.3446, 0.3446, 0.3446, 0.3446, 0.3446, 0.3446, 0.3446, 0, 0, 0.2413, 0.2413, 0.1723, 0.1723]
 }
 
   //Meridian Low user Special Freedom Plan Economy 24
-const merLow = {
-
-  } 
+const meridanSpecial = {
+  dayRate: 1.2441,
+  weekend: [0.2209, 0.2209, 0.2209, 0.2209, 0.2209, 0.2209, 0.2209, 0.2209, 0.2209, 0.2209, 0.2209, 0.2209, 0.2209, 0.2209, 0.2209, 0.2209, 0.2209, 0.2209, 0.2209, 0.2209, 0.2209, 0.2209, 0.2209, 0.2209, 0.2209, 0.2209, 0.2209, 0.2209, 0.2209, 0.2209, 0.2209, 0.2209, 0.2209, 0.2209, 0.2209, 0.2209, 0.2209, 0.2209, 0.2209, 0.2209, 0.2209, 0.2209, 0.2209, 0.2209, 0.2209, 0.2209, 0.2209, 0.2209],
+  weekday: [0.2209, 0.2209, 0.2209, 0.2209, 0.2209, 0.2209, 0.2209, 0.2209, 0.2209, 0.2209, 0.2209, 0.2209, 0.2209, 0.2209, 0.2209, 0.2209, 0.2209, 0.2209, 0.2209, 0.2209, 0.2209, 0.2209, 0.2209, 0.2209, 0.2209, 0.2209, 0.2209, 0.2209, 0.2209, 0.2209, 0.2209, 0.2209, 0.2209, 0.2209, 0.2209, 0.2209, 0.2209, 0.2209, 0.2209, 0.2209, 0.2209, 0.2209, 0.2209, 0.2209, 0.2209, 0.2209, 0.2209, 0.2209]
+} 
 
   //Meridian Special Freedom Plan Economy 24
-const merStd = {
+const frank = {
+  dayRate: 1.035,
+  weekend: [0.2380, 0.2380, 0.2380, 0.2380, 0.2380, 0.2380, 0.2380, 0.2380, 0.2380, 0.2380, 0.2380, 0.2380, 0.2380, 0.2380, 0.2380, 0.2380, 0.2380, 0.2380, 0.2380, 0.2380, 0.2380, 0.2380, 0.2380, 0.2380, 0.2380, 0.2380, 0.2380, 0.2380, 0.2380, 0.2380, 0.2380, 0.2380, 0.2380, 0.2380, 0.2380, 0.2380, 0.2380, 0.2380, 0.2380, 0.2380, 0.2380, 0.2380, 0.2380, 0.2380, 0.2380, 0.2380, 0.2380, 0.2380],
+  weekday: [0.2380, 0.2380, 0.2380, 0.2380, 0.2380, 0.2380, 0.2380, 0.2380, 0.2380, 0.2380, 0.2380, 0.2380, 0.2380, 0.2380, 0.2380, 0.2380, 0.2380, 0.2380, 0.2380, 0.2380, 0.2380, 0.2380, 0.2380, 0.2380, 0.2380, 0.2380, 0.2380, 0.2380, 0.2380, 0.2380, 0.2380, 0.2380, 0.2380, 0.2380, 0.2380, 0.2380, 0.2380, 0.2380, 0.2380, 0.2380, 0.2380, 0.2380, 0.2380, 0.2380, 0.2380, 0.2380, 0.2380, 0.2380]
+}
 
+//Genesis Energy Plus Flexible Composite (Low user)
+const genesis = {
+  dayRate: 1.035,
+  weekend: [0.26772, 0.26772, 0.26772, 0.26772, 0.26772, 0.26772, 0.26772, 0.26772, 0.26772, 0.26772, 0.26772, 0.26772, 0.26772, 0.26772, 0.26772, 0.26772, 0.26772, 0.26772, 0.26772, 0.26772, 0.26772, 0.26772, 0.26772, 0.26772, 0.26772, 0.26772, 0.26772, 0.26772, 0.26772, 0.26772, 0.26772, 0.26772, 0.26772, 0.26772, 0.26772, 0.26772, 0.26772, 0.26772, 0.26772, 0.26772, 0.26772, 0.26772, 0.26772, 0.26772, 0.26772, 0.26772, 0.26772, 0.26772],
+  weekday: [0.26772, 0.26772, 0.26772, 0.26772, 0.26772, 0.26772, 0.26772, 0.26772, 0.26772, 0.26772, 0.26772, 0.26772, 0.26772, 0.26772, 0.26772, 0.26772, 0.26772, 0.26772, 0.26772, 0.26772, 0.26772, 0.26772, 0.26772, 0.26772, 0.26772, 0.26772, 0.26772, 0.26772, 0.26772, 0.26772, 0.26772, 0.26772, 0.26772, 0.26772, 0.26772, 0.26772, 0.26772, 0.26772, 0.26772, 0.26772, 0.26772, 0.26772, 0.26772, 0.26772, 0.26772, 0.26772, 0.26772, 0.26772]
+}
+
+//Contact Good Weekends Low User Plan
+const ContactGW = {
+  dayRate: 1.38,
+  weekend: [0.3082, 0.3082, 0.3082, 0.3082, 0.3082, 0.3082, 0.3082, 0.3082, 0.3082, 0.3082, 0.3082, 0.3082, 0.3082, 0.3082, 0.3082, 0.3082, 0.3082, 0.3082, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.3082, 0.3082, 0.3082, 0.3082, 0.3082, 0.3082, 0.3082, 0.3082, 0.3082, 0.3082, 0.3082, 0.3082, 0.3082, 0.3082],
+  weekday: [0.3082, 0.3082, 0.3082, 0.3082, 0.3082, 0.3082, 0.3082, 0.3082, 0.3082, 0.3082, 0.3082, 0.3082, 0.3082, 0.3082, 0.3082, 0.3082, 0.3082, 0.3082, 0.3082, 0.3082, 0.3082, 0.3082, 0.3082, 0.3082, 0.3082, 0.3082, 0.3082, 0.3082, 0.3082, 0.3082, 0.3082, 0.3082, 0.3082, 0.3082, 0.3082, 0.3082, 0.3082, 0.3082, 0.3082, 0.3082, 0.3082, 0.3082, 0.3082, 0.3082, 0.3082, 0.3082, 0.3082, 0.3082]
 }
 
 
+
+
+//-------------Calculations---------------------
+
+//round to n sig fig
+function round(value, decimals) {
+    return Number(Math.round(value + 'e' + decimals) + 'e-' + decimals);
+}
 
 
 // Function to calculate the total cost based on the price plans
 function calculateCost(data, pricePlan) {
     let totalCost = 0;
+    let totalkWh = 0;
     let numDays = data.length;
+    // console.log(`number of days: ${numDays}; $${numDays * pricePlan.dayRate}`)
 
     data.forEach((row, rowIndex) => { // Go row by row, for each day
-        const dayType = row[0]; // 'd' for weekday, 'e' for weekend
+        const dayType = row[0]; // 'd' for weekday, 'we' for weekend
         const rates = (dayType === 'we') ? pricePlan.weekend : pricePlan.weekday;
 
         row.forEach((value, colIndex) => {
             if (colIndex > 0) { // Skip the first column (day type)
                 const kWh = parseFloat(value);
                 const costPerKWh = rates[colIndex - 1]; // Adjust index for price plan
+                // totalCost += round((kWh * costPerKWh),2);
                 totalCost += kWh * costPerKWh;
+                totalkWh += kWh;
+                // console.log(`;${rowIndex}.${colIndex};${totalCost};${kWh*costPerKWh};${kWh};${costPerKWh}`)
             }
         });
     });
 
     // Add the dayrate for each day
-    totalCost += numDays * pricePlan.dayrate;
+    totalCost += (numDays * pricePlan.dayRate);
 
-    return totalCost;
+    return {
+      totalCost: round(totalCost,2),
+      meanDailyCost: round((totalCost / numDays),2),
+      meanUsage: round(totalkWh,2)
+    };
 }
 
-console.log(calculateCost(hardcodedData,ekMoveMaster))
 
-document.getElementById("ekMoveMaster").innerHTML = `Electric Kiwi MoveMaster: $${calculateCost(hardcodedData,ekMoveMaster)}`
+//-----------DISPLAY STATS----------------
+
+//fill in the basic stats
+document.getElementById("usageStats").innerHTML = `<p><b>Usage Stats</b>
+<br>&nbsp;&nbsp; Mean Daily Usage: ${calculateCost(hardcodedUsageData,ekMoveMaster).meanUsage} kWh
+
+</p>`
+
+//fill in the Electric Kiwi info
+document.getElementById("plan1").innerHTML = `<p><b>Electric Kiwi MoveMaster</b>
+<br>&nbsp;&nbsp; Total: $${calculateCost(hardcodedUsageData,ekMoveMaster).totalCost}
+<br>&nbsp;&nbsp; Mean Daily Cost: $${calculateCost(hardcodedUsageData,ekMoveMaster).meanDailyCost}
+</p>`
+
+//meridian
+document.getElementById("plan2").innerHTML = `<p><b>Meridian</b>
+<br>&nbsp;&nbsp; Total: $${calculateCost(hardcodedUsageData,meridanSpecial).totalCost}
+<br>&nbsp;&nbsp; Mean Daily Cost: $${calculateCost(hardcodedUsageData,meridanSpecial).meanDailyCost}
+</p>`
+
+//frank
+document.getElementById("plan3").innerHTML = `<p><b>Frank</b>
+<br>&nbsp;&nbsp; Total: $${calculateCost(hardcodedUsageData,frank).totalCost}
+<br>&nbsp;&nbsp; Mean Daily Cost: $${calculateCost(hardcodedUsageData,frank).meanDailyCost}
+</p>`
+
+//genesis
+document.getElementById("plan4").innerHTML = `<p><b>Genesis</b>
+<br>&nbsp;&nbsp; Total: $${calculateCost(hardcodedUsageData,genesis).totalCost}
+<br>&nbsp;&nbsp; Mean Daily Cost: $${calculateCost(hardcodedUsageData,genesis).meanDailyCost}
+</p>`
+
+//Contact
+document.getElementById("plan5").innerHTML = `<p><b>Contact</b>
+<br>&nbsp;&nbsp; Total: $${calculateCost(hardcodedUsageData,ContactGW).totalCost}
+<br>&nbsp;&nbsp; Mean Daily Cost: $${calculateCost(hardcodedUsageData,ContactGW).meanDailyCost}
+</p>`
+
+
+
 
 </script>
