@@ -1,3 +1,7 @@
 test.html
 test.js
 test.md
+node_modules/
+dist/
+.vite/
+.vite/deps/_metadata.json
