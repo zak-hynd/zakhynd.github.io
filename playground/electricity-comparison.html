@@ -9,7 +9,17 @@
     <link href="https://zak-hynd.github.io/styles/main.css" rel="stylesheet" type="text/css">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌊</text></svg>">
     <meta name="robots" content="noindex, nofollow">
+    <!-- Import libraries for parsing and manipulating structured data -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/papaparse@5.3.0/papaparse.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@3.9.0"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/danfojs@latest/dist/index.min.js" defer></script> -->
+      <!-- data forge seems to be needed for browser? danfo doesn't work -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/data-forge@1.8.19/dist/data-forge.js"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/data-forge@1.8.19/dist/data-forge.min.js"></script> -->
+      <!-- and data-forge libraries refuse to load as well.... I'm giving up on this for now!!!! -->
   </head>
+
   <body>
     <nav></nav>
       <a href="https://zak-hynd.github.io">⌂←</a>
@@ -27,6 +37,28 @@
         <br>
         <hr>
 
+        <h1>Calculations</h1>
+        <h2>Import & Parse CSV</h2>        
+        <!-- <script>console.log("Data-Forge loaded:", typeof dataForge !== 'undefined')</script> -->
+        <div id="csvImportSection">Import Electric Kiwi usage csv file:
+          <input type="file" id="csvFileInput" accept=".csv">
+        </div>
+        <div id="csvStats"></div>
+
+
+        <br><hr>
+        <h2>Hardcoded data and plans</h2>
+        <p>The following values are computed using one-week of my power consumption, and the price-plan information available on Powerswitch.org </p>
+        <div id="usageStats"></div>
+        <div id="plan1"></div>
+        <div id="plan2"></div>
+        <div id="plan3"></div>
+        <div id="plan4"></div>
+        <div id="plan5"></div>
+        <div id="plan6"></div>
+        <hr>
+
+
         <md-block>
           # To Do
           - <s>calculate costs (wth hardcoded EK costs and usage data)</s>
@@ -37,27 +69,23 @@
           - import ek usage csv & parse it into shape
             - see what other retailers' usage data structures are like
           - customise your price plans
-          - display usage somehow (histogram?)
+          - user's usage insights
+            - histogram
+            - medians (not means)
+            - usage weekend vs weekday
+            - usage throughout the day
+          - Plot each plan's costs against a usage histogram
           - ...
 
 
         </md-block>
-
-        <hr>
-        <h2>Vitalstatistications</h2>
-        <div id="usageStats"></div>
-        <div id="plan1"></div>
-        <div id="plan2"></div>
-        <div id="plan3"></div>
-        <div id="plan4"></div>
-        <div id="plan5"></div>
-        <div id="plan6"></div>
-
-
-
+       
     
     </main>
     <br><hr><br>
+    <!-- <script>console.log("Data-Forge loaded:", typeof dataForge !== 'undefined')</script> -->
+
+    <script src="electric.js" type="module"></script>
   </body>
 </html>
 
