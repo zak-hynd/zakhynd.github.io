@@ -1,7 +1,36 @@
-export const powerPlans = {
-    name: 'Electric Kiwi MoveMaster'
-
-}
+export const powerPlans = [ //an array of objects
+    {    name: 'Electric Kiwi MoveMaster',
+        fixedRatePerDay: 1.43,
+        defaultUsageRate: 0.1723,
+        tieredRates: [
+        { name: 'Day Rate',
+            rate: 0.2413,
+            start: '07:00',
+            end: '23:00',
+            days: [1,2,3,4,5,6,7] //everyday
+        }, {
+            name: 'Peak Morning',
+            rate: 0.3446,
+            start: '07:00',
+            end: '09:00',
+            days: [1,2,3,4,5] //weekdays
+        }, {
+            name: 'Peak Evening',
+            rate: 0.3446,
+            start: '17:00',
+            end: '21:00',
+            days: [1,2,3,4,5]
+        },{
+            name:'Hour of Power',
+            rate: 0.0,
+            start: '21:00',
+            end: '22:00',
+            days: [1,2,3,4,5,6,7]
+        }]
+    },
+    {name: 'second power plan'},
+    {name: 'third power plan'}
+]//end of power plans
 
 
 //schema?
