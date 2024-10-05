@@ -23,7 +23,7 @@ const b = document.getElementById("2");
 const c = document.getElementById("3");
 const d = document.getElementById("4");
 
-const metltedData = [
+const testData = [
     {date: '2024-09-01',time: '00:15',usage: 0.25},
     {date: '2023-02-01',time: '00:15',usage: NaN},
     {date: '2024-09-01',time: '00:15',usage: ''},
@@ -68,12 +68,12 @@ function dothestats(arrayOfObjects) {
     
 
 
-
+//test things, because console with Live Preview kind of sucks
     a.innerHTML = uniqueDates
     b.innerHTML = earliestDate
     c.innerHTML = latestDate
     d.innerHTML = meanDailyUsage
-} dothestats(metltedData)
+} dothestats(testData)
 
 
 //round to n sig fig
