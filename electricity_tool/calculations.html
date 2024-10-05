@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+</head>
+<body>
+    <h1>stuff</h1>
+    <div class="container">
+        <div id="1"></div>
+        <div id="2"></div>
+        <div id="3"></div>
+        <div id="4"></div>
+    </div>
+</body>
+</html>
+<script>
+
+const a = document.getElementById("1");
+const b = document.getElementById("2");
+const c = document.getElementById("3");
+const d = document.getElementById("4");
+
+const metltedData = [
+    {date: '2024-09-01',time: '00:15',usage: 0.25},
+    {date: '2023-02-01',time: '00:15',usage: NaN},
+    {date: '2024-09-01',time: '00:15',usage: ''},
+    {date: '2024-09-01',time: '00:15',usage: '0.25'},
+    {date: '2024-05-01',time: '00:15',usage: 0.25},
+    {date: '2024-09-01',time: '00:15',usage: 0.0},
+    {date: '2024-05-04',time: '00:15',usage: 0.20},
+    {date: '2021-01-01',time: '00:15',usage: 0.15},
+    {date: '2025-09-01',time: '00:15',usage: 0.25},
+    {date: '2022-09-02',time: '00:15',usage: 0.35}
+]
+
+function dothestats(arrayOfObjects) {
+    //convert into 3 separate arrays
+    let datesArray = [];
+    let timesArray = [];
+    let usagesArray= [];
+    arrayOfObjects.forEach(element => {
+        datesArray.push(element.date);
+        timesArray.push(element.time);
+        usagesArray.push(element.usage);
+    });
+
+    //dates
+    //get unique dates (set), turn to sorted array
+    const uniqueDates = (Array.from(new Set(datesArray))).sort()
+    const totalDays = uniqueDates.length //doesn't account for non-dates though :/
+    const earliestDate = uniqueDates[0];
+    const latestDate = uniqueDates[totalDays-1]
+
+    //times
+    //unique array for debugging
+    const uniqueTimes = (Array.from(new Set(timesArray))).sort()
+
+    //usages    
+    const totalUsage = usagesArray.reduce((total, element) => { //calculate total, if it's a number
+        if (typeof element === 'number' && !isNaN(element)) {
+         return total + element;} return total; }, 0); //I need to wrap my head around reduce thingee
+    const meanDailyUsage = round(totalUsage/totalDays,2)
+         //get array of non numeric usage values, for debugging
+    const funkyUsages = usagesArray.filter(value => typeof value !== 'number' || isNaN(value));
+    
+
+
+
+    a.innerHTML = uniqueDates
+    b.innerHTML = earliestDate
+    c.innerHTML = latestDate
+    d.innerHTML = meanDailyUsage
+} dothestats(metltedData)
+
+
+//round to n sig fig
+function round(value, decimals) {
+    return Number(Math.round(value + 'e' + decimals) + 'e-' + decimals);
+}
+
+</script>
